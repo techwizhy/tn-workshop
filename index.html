@@ -1329,7 +1329,7 @@ input, select, textarea {
 ═══════════════════════════════════════════════════════════════ */
 .back-to-top {
   position: fixed;
-  bottom: 28px;
+  bottom: 88px;
   right: 28px;
   width: 44px;
   height: 44px;
@@ -1821,11 +1821,7 @@ body.fcta-active #wa-widget { bottom: 88px; }
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="tricolour-bar" aria-hidden="true">
-    <div class="tc-saffron"></div>
-    <div class="tc-white"></div>
-    <div class="tc-green"></div>
-  </div>
+
 </header>
 
 <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
@@ -2674,7 +2670,26 @@ body.fcta-active #wa-widget { bottom: 88px; }
     });
   }
 
-  /* ─── SMOOTH SCROLL WITH HEADER OFFSET ─────────────── */
+  /* ─── SMOOTH SCROLL WITH HEADER OFFSET + CUSTOM EASING ─ */
+  function customScrollTo(targetY, duration) {
+    var startY = window.pageYOffset;
+    var diff = targetY - startY;
+    if (Math.abs(diff) < 2) return;
+    var startTime = null;
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      /* ease-in-out-cubic */
+      var ease = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+      window.scrollTo(0, startY + diff * ease);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
   document.addEventListener('click', function(e) {
     var anchor = e.target.closest('a[href^="#"]');
     if (!anchor) return;
@@ -2685,7 +2700,9 @@ body.fcta-active #wa-widget { bottom: 88px; }
     e.preventDefault();
     var headerH = header ? header.offsetHeight : 0;
     var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
-    window.scrollTo({ top: top, behavior: 'smooth' });
+    /* Back-to-top: 1400ms slow scroll so user sees page scrolling */
+    var isBackToTop = anchor.id === 'back-to-top';
+    customScrollTo(top, isBackToTop ? 1400 : 600);
   });
 
   /* ─── ACTIVE NAV ON SCROLL (IntersectionObserver) ──── */
