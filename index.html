@@ -1442,6 +1442,346 @@ input, select, textarea {
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-up { animation: fadeUp 0.55s ease both; }
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCEMENT: SCROLL PROGRESS BAR
+═══════════════════════════════════════════════════════════════ */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--green));
+  z-index: 10000;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCEMENT: FLOATING CTA BAR
+═══════════════════════════════════════════════════════════════ */
+#floating-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1200;
+  background: var(--navy-mid);
+  border-top: 3px solid var(--saffron);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 20px;
+  box-shadow: 0 -4px 24px rgba(0,0,128,0.25);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+#floating-cta.visible { transform: translateY(0); }
+.fcta-label {
+  color: rgba(255,255,255,0.75);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-right: 4px;
+  display: none;
+}
+@media (min-width: 480px) { .fcta-label { display: block; } }
+.fcta-register {
+  background: var(--saffron);
+  color: var(--navy);
+  border: 2px solid var(--saffron);
+  padding: 9px 22px;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.fcta-register:hover { background: #e88820; transform: translateY(-1px); }
+.fcta-donate {
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  border: 2px solid rgba(255,255,255,0.4);
+  padding: 9px 22px;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.fcta-donate:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.7); }
+.fcta-close {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: color var(--transition);
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+.fcta-close:hover { color: rgba(255,255,255,0.9); }
+/* Push body up so last-section content isn't hidden behind the bar */
+body.fcta-active { padding-bottom: 64px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCEMENT: EXIT-INTENT / LEAD CAPTURE POPUP
+═══════════════════════════════════════════════════════════════ */
+#lead-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  backdrop-filter: blur(3px);
+}
+#lead-popup-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+#lead-popup {
+  background: var(--surface);
+  border-radius: 18px;
+  max-width: 480px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+  transform: scale(0.92) translateY(16px);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  position: relative;
+}
+#lead-popup-overlay.open #lead-popup {
+  transform: scale(1) translateY(0);
+}
+.popup-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  padding: 28px 28px 22px;
+  position: relative;
+}
+.popup-flag {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  display: block;
+}
+.popup-header h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.popup-header p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+}
+.popup-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,153,51,0.18);
+  border: 1px solid rgba(255,153,51,0.5);
+  color: var(--saffron);
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+  width: fit-content;
+}
+.popup-urgency::before { content: '🔴'; font-size: 0.6rem; animation: pulse 1.2s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+.popup-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: rgba(255,255,255,0.7);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup-close:hover { background: rgba(255,255,255,0.25); color: #fff; }
+.popup-body {
+  padding: 24px 28px 28px;
+}
+.popup-seats-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.popup-seat-badge {
+  flex: 1;
+  min-width: 110px;
+  background: var(--saffron-light);
+  border: 1.5px solid var(--saffron);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  text-align: center;
+}
+.popup-seat-badge strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #E65100;
+}
+.popup-seat-badge span { font-size: 0.72rem; color: var(--text-muted); }
+#popup-form { display: flex; flex-direction: column; gap: 10px; }
+#popup-form input {
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background: var(--surface);
+  color: var(--text);
+  width: 100%;
+  transition: border-color var(--transition);
+}
+#popup-form input:focus { outline: none; border-color: var(--navy); }
+#popup-form .btn-primary { justify-content: center; font-size: 1rem; }
+.popup-skip {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+.popup-skip:hover { color: var(--text); }
+#popup-success {
+  padding: 24px 28px 28px;
+  text-align: center;
+  display: none;
+}
+#popup-success .popup-success-icon { font-size: 3rem; margin-bottom: 12px; }
+#popup-success h4 { font-size: 1.1rem; font-weight: 700; color: var(--success); margin-bottom: 8px; }
+#popup-success p { font-size: 0.88rem; color: var(--text-muted); }
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCEMENT: WHATSAPP WIDGET
+═══════════════════════════════════════════════════════════════ */
+#wa-widget {
+  position: fixed;
+  bottom: 28px;
+  left: 24px;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+#wa-widget.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.wa-bubble {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  padding: 10px 18px 10px 12px;
+  border-radius: 40px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+}
+.wa-bubble:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.55);
+  color: #fff;
+}
+.wa-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.wa-tooltip {
+  background: #1a1a2e;
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+}
+/* On mobile, shift WA widget higher when floating CTA bar is active */
+body.fcta-active #wa-widget { bottom: 88px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCEMENT: SEAT COUNTER IN TABLE
+═══════════════════════════════════════════════════════════════ */
+.seats-left-cell {
+  min-width: 130px;
+}
+.seats-left-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 40px;
+  font-size: 0.78rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.seats-critical { background: #FFEBEE; color: #C62828; }
+.seats-low      { background: #FFF3E0; color: #E65100; }
+.seats-ok       { background: #E8F5E9; color: #2E7D32; }
+.seats-left-pill .seats-dot {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+}
+.seats-critical .seats-dot { background: #C62828; animation: pulse 1s infinite; }
+.seats-low .seats-dot      { background: #E65100; }
+.seats-ok .seats-dot       { background: #2E7D32; }
   </style>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>">
 </head>
@@ -1796,7 +2136,7 @@ input, select, textarea {
     <div class="schedule-table-wrap">
       <table class="schedule-table">
         <thead>
-          <tr><th>Batch</th><th>Location</th><th>Start Date</th><th>Seats</th><th>Status</th><th>Action</th></tr>
+          <tr><th>Batch</th><th>Location</th><th>Start Date</th><th>Seats</th><th>Seats Left</th><th>Status</th><th>Action</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -1804,6 +2144,7 @@ input, select, textarea {
             <td data-label="Location">Chennai, Tamil Nadu</td>
             <td data-label="Start Date">1 Aug 2025</td>
             <td data-label="Seats">120</td>
+            <td data-label="Seats Left" class="seats-left-cell"><span class="seats-left-pill seats-low"><span class="seats-dot"></span>Only 14 left</span></td>
             <td data-label="Status"><span class="badge badge-open">Open</span></td>
             <td data-label="Action"><a href="#registration" class="btn-table">Register</a></td>
           </tr>
@@ -1812,6 +2153,7 @@ input, select, textarea {
             <td data-label="Location">Chennai, Tamil Nadu</td>
             <td data-label="Start Date">1 Oct 2025</td>
             <td data-label="Seats">60</td>
+            <td data-label="Seats Left" class="seats-left-cell"><span class="seats-left-pill seats-ok"><span class="seats-dot"></span>38 available</span></td>
             <td data-label="Status"><span class="badge badge-open">Open</span></td>
             <td data-label="Action"><a href="#registration" class="btn-table">Register</a></td>
           </tr>
@@ -1820,6 +2162,7 @@ input, select, textarea {
             <td data-label="Location">Madurai, Tamil Nadu</td>
             <td data-label="Start Date">15 Sep 2025</td>
             <td data-label="Seats">80</td>
+            <td data-label="Seats Left" class="seats-left-cell"><span class="seats-left-pill seats-critical"><span class="seats-dot"></span>Only 6 left!</span></td>
             <td data-label="Status"><span class="badge badge-limited">Limited</span></td>
             <td data-label="Action"><a href="#registration" class="btn-table">Register</a></td>
           </tr>
@@ -1828,6 +2171,7 @@ input, select, textarea {
             <td data-label="Location">Coimbatore, Tamil Nadu</td>
             <td data-label="Start Date">1 Nov 2025</td>
             <td data-label="Seats">100</td>
+            <td data-label="Seats Left" class="seats-left-cell"><span class="seats-left-pill seats-ok"><span class="seats-dot"></span>67 available</span></td>
             <td data-label="Status"><span class="badge badge-open">Open</span></td>
             <td data-label="Action"><a href="#registration" class="btn-table">Register</a></td>
           </tr>
@@ -2682,6 +3026,200 @@ input, select, textarea {
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     animEls.forEach(function(el) { animIO.observe(el); });
+  }
+
+})();
+</script>
+
+<!-- ═══════════════ ENHANCEMENT: SCROLL PROGRESS BAR ═══════════════ -->
+<div id="scroll-progress-bar" role="progressbar" aria-label="Page scroll progress"></div>
+
+<!-- ═══════════════ ENHANCEMENT: FLOATING CTA BAR ═══════════════════ -->
+<div id="floating-cta" role="complementary" aria-label="Quick actions">
+  <span class="fcta-label">Your future in politics starts today —</span>
+  <a href="#registration" class="fcta-register">📋 Register Now</a>
+  <a href="#donate" class="fcta-donate">💛 Donate</a>
+  <button class="fcta-close" id="fcta-close" aria-label="Dismiss bar">✕</button>
+</div>
+
+<!-- ═══════════════ ENHANCEMENT: EXIT-INTENT LEAD POPUP ═════════════ -->
+<div id="lead-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div id="lead-popup">
+    <div class="popup-header">
+      <button class="popup-close" id="popup-close" aria-label="Close popup">✕</button>
+      <span class="popup-flag">🇮🇳</span>
+      <span class="popup-urgency">Seats filling fast — don't miss out</span>
+      <h3 id="popup-title">Apply Before Seats Fill Up</h3>
+      <p>Leave your WhatsApp number and we'll contact you within 24 hours.</p>
+    </div>
+    <div class="popup-body" id="popup-body-content">
+      <div class="popup-seats-row">
+        <div class="popup-seat-badge"><strong>14</strong><span>Chennai seats left</span></div>
+        <div class="popup-seat-badge"><strong>6</strong><span>Madurai seats left</span></div>
+        <div class="popup-seat-badge"><strong>67</strong><span>CBE seats left</span></div>
+      </div>
+      <form id="popup-form" novalidate>
+        <input type="text" id="popup-name" placeholder="Your full name" autocomplete="name">
+        <input type="tel" id="popup-phone" placeholder="WhatsApp number (10 digits)" autocomplete="tel">
+        <button type="submit" class="btn-primary btn-submit" style="margin-top:4px">Reserve My Seat →</button>
+      </form>
+      <button class="popup-skip" id="popup-skip">No thanks, I'll register later</button>
+    </div>
+    <div id="popup-success">
+      <div class="popup-success-icon">✅</div>
+      <h4>We'll call you within 24 hours!</h4>
+      <p>Our admissions team will contact you on your WhatsApp number to confirm your seat and batch details.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ ENHANCEMENT: WHATSAPP WIDGET ════════════════════ -->
+<div id="wa-widget" role="complementary">
+  <span class="wa-tooltip">Chat with us on WhatsApp</span>
+  <a href="https://wa.me/919XXXXXXXXX?text=Hi%2C%20I%20am%20interested%20in%20the%20Tamil%20Nadu%20Youth%20Political%20Workshop.%20Please%20share%20details." class="wa-bubble" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <span class="wa-icon">💬</span>
+    Chat with Us
+  </a>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCEMENTS JS — runs after main IIFE
+═══════════════════════════════════════════════════════════════ */
+(function() {
+  'use strict';
+
+  /* ── 1. SCROLL PROGRESS BAR ───────────────────────────────── */
+  var progressBar = document.getElementById('scroll-progress-bar');
+  if (progressBar) {
+    window.addEventListener('scroll', function() {
+      var doc = document.documentElement;
+      var scrollTop = doc.scrollTop || document.body.scrollTop;
+      var scrollHeight = doc.scrollHeight - doc.clientHeight;
+      var pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = pct.toFixed(2) + '%';
+    }, { passive: true });
+  }
+
+  /* ── 2. FLOATING CTA BAR ──────────────────────────────────── */
+  var fctaBar = document.getElementById('floating-cta');
+  var fctaClose = document.getElementById('fcta-close');
+  var fctaDismissed = false;
+
+  function showFCTA() {
+    if (!fctaDismissed && fctaBar) {
+      fctaBar.classList.add('visible');
+      document.body.classList.add('fcta-active');
+    }
+  }
+  function hideFCTA() {
+    if (fctaBar) {
+      fctaBar.classList.remove('visible');
+      document.body.classList.remove('fcta-active');
+    }
+  }
+
+  // Show after user scrolls 200px
+  window.addEventListener('scroll', function() {
+    if (fctaDismissed) return;
+    if (window.scrollY > 200) showFCTA();
+    else hideFCTA();
+  }, { passive: true });
+
+  if (fctaClose) {
+    fctaClose.addEventListener('click', function() {
+      fctaDismissed = true;
+      hideFCTA();
+    });
+  }
+
+  /* ── 3. LEAD CAPTURE POPUP (exit-intent + scroll 50%) ──────── */
+  var overlay = document.getElementById('lead-popup-overlay');
+  var popupClose = document.getElementById('popup-close');
+  var popupSkip = document.getElementById('popup-skip');
+  var popupForm = document.getElementById('popup-form');
+  var popupSuccess = document.getElementById('popup-success');
+  var popupBodyContent = document.getElementById('popup-body-content');
+  var popupShown = false;
+  var popupDismissed = false;
+
+  function openPopup() {
+    if (popupShown || popupDismissed) return;
+    popupShown = true;
+    if (overlay) overlay.classList.add('open');
+    // Trap focus
+    if (popupClose) setTimeout(function() { popupClose.focus(); }, 50);
+  }
+  function closePopup() {
+    popupDismissed = true;
+    if (overlay) overlay.classList.remove('open');
+  }
+
+  // Trigger on 50% scroll
+  window.addEventListener('scroll', function() {
+    if (popupShown || popupDismissed) return;
+    var doc = document.documentElement;
+    var scrollPct = (doc.scrollTop / (doc.scrollHeight - doc.clientHeight)) * 100;
+    if (scrollPct >= 50) openPopup();
+  }, { passive: true });
+
+  // Trigger on exit-intent (mouse leaves top of viewport)
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 0) openPopup();
+  });
+
+  if (popupClose) popupClose.addEventListener('click', closePopup);
+  if (popupSkip)  popupSkip.addEventListener('click', closePopup);
+
+  // Close on overlay backdrop click
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closePopup();
+    });
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if ((e.key === 'Escape' || e.keyCode === 27) && overlay && overlay.classList.contains('open')) {
+      closePopup();
+    }
+  });
+
+  // Popup form submit
+  if (popupForm) {
+    popupForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var nameVal = (document.getElementById('popup-name') || {}).value || '';
+      var phoneVal = (document.getElementById('popup-phone') || {}).value || '';
+      var phoneOk = /^[6-9]\d{9}$/.test(phoneVal.replace(/\s/g,''));
+      if (nameVal.trim().length < 2) {
+        var ni = document.getElementById('popup-name');
+        if (ni) { ni.style.borderColor = '#C62828'; ni.focus(); }
+        return;
+      }
+      if (!phoneOk) {
+        var pi = document.getElementById('popup-phone');
+        if (pi) { pi.style.borderColor = '#C62828'; pi.focus(); }
+        return;
+      }
+      // Show success
+      if (popupBodyContent) popupBodyContent.style.display = 'none';
+      if (popupSuccess) popupSuccess.style.display = 'block';
+      // Auto-close after 3s
+      setTimeout(closePopup, 3000);
+    });
+
+    // Reset field border on input
+    ['popup-name','popup-phone'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', function() { this.style.borderColor = ''; });
+    });
+  }
+
+  /* ── 4. WHATSAPP WIDGET — show after 3 seconds ─────────────── */
+  var waWidget = document.getElementById('wa-widget');
+  if (waWidget) {
+    setTimeout(function() { waWidget.classList.add('visible'); }, 3000);
   }
 
 })();
