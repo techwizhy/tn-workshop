@@ -1,0 +1,13 @@
+# Node modules
+node_modules/
+# Logs
+*.log
+# OS files
+Thumbs.db
+Desktop.ini
+# Build artifacts
+dist/
+# npm lock files
+package-lock.json
+# Environment files
+.env

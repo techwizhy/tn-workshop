@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ta" data-theme="light" data-font="md">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Tamil Nadu Youth Political Workshop</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <!-- Tabler Icons Webfont CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="yw-wp-compatible">
+  <!-- Main Wrapper -->
+  <div id="yw-root">
+    
+    <!-- Header & Navigation -->
+    <header class="yw-header">
+      <nav class="yw-navbar" id="yw-main-nav">
+        <a href="index.html" class="yw-logo">
+          <span class="ti ti-building-monument yw-logo-icon" aria-hidden="true"></span>
+          <span class="yw-logo-text">TN Youth Political Workshop</span>
+        </a>
+        <button id="yw-nav-toggle" class="yw-nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="yw-nav-menu">
+          <span class="yw-hamburger-bar"></span>
+          <span class="yw-hamburger-bar"></span>
+          <span class="yw-hamburger-bar"></span>
+        </button>
+        <ul class="yw-nav-menu" id="yw-nav-menu">
+          <li class="yw-nav-item"><a href="index.html" class="yw-nav-link">Home</a></li>
+          <li class="yw-nav-item"><a href="gallery.html" class="yw-nav-link yw-active">Gallery</a></li>
+          <li class="yw-nav-item"><a href="donate.html" class="yw-nav-link">Donate</a></li>
+          <li class="yw-nav-item"><a href="terms.html" class="yw-nav-link">Terms</a></li>
+          <li class="yw-nav-item"><a href="contact.html" class="yw-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Controls -->
+      <div class="yw-controls-bar">
+        <div class="yw-font-controls">
+          <button id="yw-font-decrease" class="yw-control-btn" type="button" aria-label="Decrease font size">A-</button>
+          <button id="yw-font-reset" class="yw-control-btn" type="button" aria-label="Reset font size">A</button>
+          <button id="yw-font-increase" class="yw-control-btn" type="button" aria-label="Increase font size">A+</button>
+        </div>
+        <button id="yw-theme-toggle" class="yw-control-btn yw-theme-toggle" type="button" aria-label="Toggle theme">
+          <i class="ti ti-sun yw-sun-icon" aria-hidden="true"></i>
+          <i class="ti ti-moon yw-moon-icon" aria-hidden="true"></i>
+        </button>
+        <button id="yw-share-btn" class="yw-control-btn yw-share-btn" type="button" aria-label="Share this page">
+          <i class="ti ti-share" aria-hidden="true"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="yw-main">
+      
+      <!-- Gallery Hero Section -->
+      <section id="yw-gallery-hero" class="yw-gallery-hero">
+        <div class="yw-hero-overlay"></div>
+        <div class="yw-container yw-hero-content">
+          <h1 class="yw-hero-title">புகைப்படத் தொகுப்பு</h1>
+          <p class="yw-hero-subtitle">தமிழ்நாடு இளைஞர் அரசியல் பயிலரங்கத்தின் முக்கிய நிகழ்வுகள், விவாதங்கள் மற்றும் பயிற்சி வகுப்புகளின் புகைப்படக் காட்சிகள்.</p>
+        </div>
+      </section>
+
+      <!-- Gallery Grid & Filters Section -->
+      <section id="yw-gallery-section" class="yw-gallery-section">
+        <div class="yw-container">
+          
+          <!-- Category Filters -->
+          <div id="yw-gallery-filters" class="yw-gallery-filters">
+            <button class="yw-gallery-filter-btn yw-active" data-filter="all">அனைத்தும்</button>
+            <button class="yw-gallery-filter-btn" data-filter="training">பயிற்சிகள்</button>
+            <button class="yw-gallery-filter-btn" data-filter="women">பெண்கள் அரங்கம்</button>
+            <button class="yw-gallery-filter-btn" data-filter="interactive">விவாதங்கள்</button>
+            <button class="yw-gallery-filter-btn" data-filter="events">நிகழ்வுகள்</button>
+          </div>
+
+          <!-- Gallery Grid (12 items) -->
+          <div class="yw-gallery-grid" id="yw-gallery-grid">
+            
+            <!-- Item 1 -->
+            <div class="yw-gallery-item" data-category="training" data-id="img1">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-1.jpg" alt="விளக்கக்காட்சி மற்றும் விவாத நிகழ்வு" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">பயிற்சிகள்</span>
+                <h3 class="yw-gallery-item-title">விளக்கக்காட்சி மற்றும் விவாத நிகழ்வு</h3>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="yw-gallery-item" data-category="women" data-id="img2">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-2.jpg" alt="பெண் தலைவர்கள் சிறப்பு அமர்வு" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">பெண்கள் அரங்கம்</span>
+                <h3 class="yw-gallery-item-title">பெண் தலைவர்கள் சிறப்பு அமர்வு</h3>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="yw-gallery-item" data-category="interactive" data-id="img3">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-3.jpg" alt="குழு விவாதம் மற்றும் கருத்துப் பகிர்வு" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">விவாதங்கள்</span>
+                <h3 class="yw-gallery-item-title">குழு விவாதம் மற்றும் கருத்துப் பகிர்வு</h3>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="yw-gallery-item" data-category="training" data-id="img4">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-4.jpg" alt="உள்ளாட்சி நிர்வாக மாதிரி விவாதம்" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">பயிற்சிகள்</span>
+                <h3 class="yw-gallery-item-title">உள்ளாட்சி நிர்வாக மாதிரி விவாதம்</h3>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="yw-gallery-item" data-category="interactive" data-id="img5">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-5.jpg" alt="சமூக பிரச்சார திட்ட வடிவமைப்பு" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">விவாதங்கள்</span>
+                <h3 class="yw-gallery-item-title">சமூக பிரச்சார திட்ட வடிவமைப்பு</h3>
+              </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="yw-gallery-item" data-category="events" data-id="img6">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-6.jpg" alt="பயிற்சி நிறைவு விழா மற்றும் சான்றிதழ் வழங்கல்" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">நிகழ்வுகள்</span>
+                <h3 class="yw-gallery-item-title">பயிற்சி நிறைவு விழா மற்றும் சான்றிதழ் வழங்கல்</h3>
+              </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="yw-gallery-item" data-category="training" data-id="img7">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-7.jpg" alt="இளையோர் தலைமைத்துவப் பயிற்சி" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">பயிற்சிகள்</span>
+                <h3 class="yw-gallery-item-title">இளைஞர்கள் தலைமைத்துவப் பயிற்சி</h3>
+              </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="yw-gallery-item" data-category="women" data-id="img8">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-8.jpg" alt="பெண்கள் அரசியல் களம் விவாதம்" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">பெண்கள் அரங்கம்</span>
+                <h3 class="yw-gallery-item-title">பெண்கள் அரசியல் களம் விவாதம்</h3>
+              </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="yw-gallery-item" data-category="interactive" data-id="img9">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-9.jpg" alt="வாக்காளர் தொடர்பு உத்தி வகுப்பு" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">விவாதங்கள்</span>
+                <h3 class="yw-gallery-item-title">வாக்காளர் தொடர்பு உத்தி வகுப்பு</h3>
+              </div>
+            </div>
+
+            <!-- Item 10 -->
+            <div class="yw-gallery-item" data-category="events" data-id="img10">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-10.jpg" alt="சிறப்பு விருந்தினர் உரை" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">நிகழ்வுகள்</span>
+                <h3 class="yw-gallery-item-title">சிறப்பு விருந்தினர் உரை</h3>
+              </div>
+            </div>
+
+            <!-- Item 11 -->
+            <div class="yw-gallery-item" data-category="training" data-id="img11">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-11.jpg" alt="நடுநிலையான அரசியல் விவாதம்" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">பயிற்சிகள்</span>
+                <h3 class="yw-gallery-item-title">நடுநிலையான அரசியல் விவாதம்</h3>
+              </div>
+            </div>
+
+            <!-- Item 12 -->
+            <div class="yw-gallery-item" data-category="events" data-id="img12">
+              <div class="yw-gallery-img-wrapper">
+                <img src="assets/gallery-12.jpg" alt="பயிலரங்கு பங்கேற்பாளர்கள் குழு புகைப்படம்" class="yw-gallery-img">
+              </div>
+              <div class="yw-gallery-item-content">
+                <span class="yw-gallery-item-category">நிகழ்வுகள்</span>
+                <h3 class="yw-gallery-item-title">பயிலரங்கு பங்கேற்பாளர்கள் குழு புகைப்படம்</h3>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Lightbox Modal Container -->
+      <div id="yw-lightbox" class="yw-lightbox" aria-hidden="true" role="dialog">
+        <div class="yw-lightbox-content">
+          <button class="yw-lightbox-close" id="yw-lightbox-close" type="button" aria-label="Close Lightbox">&times;</button>
+          <img src="" alt="" class="yw-lightbox-image" id="yw-lightbox-image">
+          <div class="yw-lightbox-caption" id="yw-lightbox-caption"></div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="yw-footer-section">
+      <div class="yw-container yw-footer-grid">
+        <div class="yw-footer-brand">
+          <a href="index.html" class="yw-logo yw-logo-footer">
+            <span class="ti ti-building-monument yw-logo-icon" aria-hidden="true"></span>
+            <span class="yw-logo-text">TN Youth Political Workshop</span>
+          </a>
+          <p class="yw-footer-tagline">Fostering informed, collaborative, and active civic participation among the youth of Tamil Nadu.</p>
+        </div>
+        
+        <div class="yw-footer-nav">
+          <h4 class="yw-footer-title">Quick Links</h4>
+          <ul class="yw-footer-links-list">
+            <li><a href="index.html" class="yw-footer-link">Home</a></li>
+            <li><a href="gallery.html" class="yw-footer-link">Gallery</a></li>
+            <li><a href="donate.html" class="yw-footer-link">Donate</a></li>
+            <li><a href="terms.html" class="yw-footer-link">Terms</a></li>
+            <li><a href="contact.html" class="yw-footer-link">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="yw-footer-social">
+          <h4 class="yw-footer-title">Connect With Us</h4>
+          <div class="yw-social-icons">
+            <a href="https://twitter.com" class="yw-social-icon-link" aria-label="Twitter/X"><span class="ti ti-brand-x" aria-hidden="true"></span></a>
+            <a href="https://linkedin.com" class="yw-social-icon-link" aria-label="LinkedIn"><span class="ti ti-brand-linkedin" aria-hidden="true"></span></a>
+            <a href="https://facebook.com" class="yw-social-icon-link" aria-label="Facebook"><span class="ti ti-brand-facebook" aria-hidden="true"></span></a>
+            <a href="https://youtube.com" class="yw-social-icon-link" aria-label="YouTube"><span class="ti ti-brand-youtube" aria-hidden="true"></span></a>
+            <a href="https://instagram.com" class="yw-social-icon-link" aria-label="Instagram"><span class="ti ti-brand-instagram" aria-hidden="true"></span></a>
+            <a href="https://whatsapp.com" class="yw-social-icon-link" aria-label="WhatsApp"><span class="ti ti-brand-whatsapp" aria-hidden="true"></span></a>
+            <a href="https://telegram.org" class="yw-social-icon-link" aria-label="Telegram"><span class="ti ti-brand-telegram" aria-hidden="true"></span></a>
+            <a href="https://threads.net" class="yw-social-icon-link" aria-label="Threads"><span class="ti ti-brand-threads" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="yw-footer-bottom">
+        <div class="yw-container">
+          <p class="yw-copyright">&copy; 2026 Tamil Nadu Youth Political Workshop. All rights reserved. Non-partisan civic training initiative.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="yw-back-to-top" class="yw-back-to-top yw-hidden" type="button" aria-label="Back to top">
+      <i class="ti ti-arrow-up" aria-hidden="true"></i>
+    </button>
+
+  </div>
+
+  <!-- JavaScript File -->
+  <script src="main.js" defer></script>
+</body>
+</html>
