@@ -1,726 +1,2690 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" data-font="md">
+<html lang="en" class="fs-md">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tamil Nadu Youth Political Workshop — Empowerment & Civic Leadership</title>
-  <meta name="description" content="Join the non-partisan Tamil Nadu Youth Political Workshop. Develop practical skills in local governance, public policy, advocacy, and community leadership.">
-  <!-- Google Fonts -->
+  <meta name="description" content="Tamil Nadu Youth Political Workshop — A Government of Tamil Nadu initiative empowering youth aged 18–35 to enter politics through a 6–8 month offline leadership programme. Bilingual Tamil & English. Women-only batches available.">
+  <title>Tamil Nadu Youth Political Workshop | தமிழ்நாடு இளைஞர் அரசியல் பட்டறை</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-  <!-- Tabler Icons Webfont CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════════════════════ */
+:root {
+  --saffron: #FF9933;
+  --saffron-light: #FFF3E0;
+  --saffron-mid: #FFB347;
+  --green: #138808;
+  --green-light: #E8F5E9;
+  --navy: #000080;
+  --navy-mid: #1B3A6B;
+  --navy-light: #EEF2FF;
+  --white: #FFFFFF;
+  --off-white: #FAFAF8;
+  --surface: #FFFFFF;
+  --text: #1A1A2E;
+  --text-muted: #5C5C7A;
+  --border: #E0DED8;
+  --error: #C62828;
+  --success: #2E7D32;
+  --radius: 10px;
+  --shadow: 0 2px 16px rgba(0,0,128,0.09);
+  --shadow-lg: 0 8px 32px rgba(0,0,128,0.14);
+  --transition: 0.2s ease;
+  --header-h: 72px;
+}
+
+/* Dark mode */
+html.dark {
+  --off-white: #0E0E1A;
+  --surface: #1A1A2E;
+  --text: #E8E8F0;
+  --text-muted: #9090AA;
+  --border: #333350;
+  --navy-light: #0D0D2E;
+  --shadow: 0 2px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --saffron-light: #2A1800;
+  --green-light: #0A1F0A;
+}
+
+/* Font size classes */
+html.fs-sm { font-size: 14px; }
+html.fs-md { font-size: 16px; }
+html.fs-lg { font-size: 19px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESET + BASE
+═══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans', system-ui, sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 1rem;
+  transition: background var(--transition), color var(--transition);
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  line-height: 1.25;
+  color: var(--text);
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img, svg { display: block; max-width: 100%; }
+button { cursor: pointer; font-family: inherit; }
+input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--surface);
+}
+
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════════════════ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid var(--navy);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--navy-mid);
+  border-color: var(--navy-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0,0,128,0.25);
+}
+.btn-primary.btn-lg { padding: 14px 30px; font-size: 1rem; }
+.btn-primary.btn-submit { width: 100%; justify-content: center; padding: 14px 30px; font-size: 1.05rem; margin-top: 8px; }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: var(--navy);
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid var(--navy);
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.btn-outline:hover {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+.btn-outline.btn-lg { padding: 14px 30px; font-size: 1rem; }
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════════════════ */
+.hidden { display: none !important; }
+.success-msg {
+  background: var(--green-light);
+  border: 1.5px solid var(--green);
+  color: var(--success);
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  margin-top: 16px;
+}
+.field-error {
+  display: block;
+  color: var(--error);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  min-height: 18px;
+}
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 40px;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════════════════════════ */
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--surface);
+  transition: box-shadow var(--transition), background var(--transition);
+}
+#site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,128,0.12); }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: var(--header-h);
+  padding: 0 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo-flag { font-size: 1.6rem; line-height: 1; }
+.logo-text-group { display: flex; flex-direction: column; }
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.logo-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+#main-nav { margin-left: auto; }
+#main-nav ul { display: flex; gap: 4px; }
+#main-nav a {
+  display: block;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: 6px;
+  transition: color var(--transition), background var(--transition);
+}
+#main-nav a:hover, #main-nav a.active { color: var(--navy); background: var(--navy-light); }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.font-controls { display: flex; gap: 3px; }
+.font-btn {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-muted);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+.font-btn:hover, .font-btn.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background var(--transition), border-color var(--transition);
+}
+.theme-toggle:hover { background: var(--navy-light); border-color: var(--navy); }
+
+/* Hamburger */
+#nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 7px;
+  margin-left: 8px;
+}
+#nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+#nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#nav-toggle.open span:nth-child(2) { opacity: 0; }
+#nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Tricolour bar */
+.tricolour-bar, .footer-tricolour {
+  display: flex;
+  height: 4px;
+  width: 100%;
+}
+.tc-saffron { flex: 1; background: var(--saffron); }
+.tc-white { flex: 1; background: #FFFFFF; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+.tc-green { flex: 1; background: var(--green); }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════════ */
+#hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 50%, #2A547A 100%);
+  color: var(--white);
+  padding: 100px 24px 80px;
+  overflow: hidden;
+  text-align: center;
+}
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.chakra-watermark {
+  width: min(500px, 80vw);
+  height: min(500px, 80vw);
+  opacity: 0.12;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.govt-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 40px;
+  font-size: 0.82rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+#hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 680px;
+  margin: 0 auto 32px;
+  line-height: 1.8;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.hero-actions .btn-primary {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  color: var(--navy);
+}
+.hero-actions .btn-primary:hover {
+  background: var(--saffron-mid);
+  border-color: var(--saffron-mid);
+}
+.hero-actions .btn-outline {
+  border-color: rgba(255,255,255,0.6);
+  color: var(--white);
+}
+.hero-actions .btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+}
+.hero-stats {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 32px;
+}
+.hero-stats .stat {
+  padding: 8px 28px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  text-align: center;
+}
+.hero-stats .stat:last-child { border-right: none; }
+.hero-stats strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--saffron);
+  line-height: 1.1;
+}
+.hero-stats span {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
+  margin-top: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTIONS — SHARED
+═══════════════════════════════════════════════════════════════ */
+.section { padding: 80px 0; background: var(--off-white); }
+.section-alt { background: var(--surface); }
+
+.section-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--saffron);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  color: var(--navy-mid);
+  margin-bottom: 20px;
+}
+.section-intro {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT — PILLARS GRID
+═══════════════════════════════════════════════════════════════ */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+.pillar-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--saffron), var(--green));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.pillar-card:hover::before { transform: scaleX(1); }
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--navy-light);
+}
+.pillar-icon { font-size: 2rem; margin-bottom: 14px; }
+.pillar-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy-mid);
+  margin-bottom: 8px;
+}
+.pillar-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════════════════════════
+   WOMEN IN POLITICS
+═══════════════════════════════════════════════════════════════ */
+.women-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+}
+.women-text p { color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+.women-points { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.women-points li {
+  font-size: 0.93rem;
+  color: var(--text);
+  padding: 10px 14px;
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  border-radius: 0 6px 6px 0;
+}
+.women-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+.w-stat {
+  background: var(--navy-light);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  min-width: 160px;
+}
+.w-stat strong {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.w-stat span { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; display: block; }
+.women-quote-card {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: 14px;
+  padding: 36px 30px;
+  color: var(--white);
+}
+.women-quote-card blockquote {
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.93);
+  margin-bottom: 20px;
+  position: relative;
+}
+.women-quote-card blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  color: var(--saffron);
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  line-height: 1;
+  opacity: 0.6;
+}
+.women-quote-card cite {
+  font-size: 0.83rem;
+  color: var(--saffron);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PATHWAY STEPS
+═══════════════════════════════════════════════════════════════ */
+.pathway-steps {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  justify-content: center;
+}
+.step {
+  flex: 1;
+  min-width: 200px;
+  max-width: 240px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.step:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.step-num {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron-mid));
+  color: var(--navy);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 12px rgba(255,153,51,0.35);
+}
+.step h3 { font-size: 1rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 8px; }
+.step p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.65; }
+.step-arrow {
+  font-size: 1.8rem;
+  color: var(--saffron);
+  font-weight: 700;
+  align-self: center;
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PROGRAMS
+═══════════════════════════════════════════════════════════════ */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.filter-btn {
+  padding: 8px 18px;
+  border-radius: 40px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: all var(--transition);
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.program-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.program-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.program-card.hidden-card { display: none; }
+.card-tag {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 40px;
+  font-size: 0.72rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+.tag-beginner { background: #E3F2FD; color: #1565C0; }
+.tag-women { background: #FCE4EC; color: #C2185B; }
+.tag-advanced { background: #FFF3E0; color: #E65100; }
+.tag-digital { background: #E8F5E9; color: #2E7D32; }
+.program-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--navy-mid); }
+.card-meta { font-size: 0.8rem; color: var(--text-muted); }
+.program-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; flex: 1; }
+.card-cta {
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  transition: gap var(--transition), color var(--transition);
+}
+.card-cta:hover { gap: 8px; color: var(--saffron); }
+
+/* ═══════════════════════════════════════════════════════════════
+   TRAINERS
+═══════════════════════════════════════════════════════════════ */
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+.trainer-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.trainer-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.trainer-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 12px rgba(0,0,128,0.2);
+}
+.trainer-avatar[data-gender="male"] { background: linear-gradient(135deg, var(--navy-mid), var(--navy)); }
+.trainer-avatar[data-gender="female"] { background: linear-gradient(135deg, #B71C1C, #E53935); }
+.trainer-card h3 { font-size: 0.97rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 4px; }
+.trainer-role { font-size: 0.78rem; color: var(--saffron); font-weight: 600; margin-bottom: 10px; }
+.trainer-bio { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+.trainer-tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.trainer-tags span {
+  padding: 3px 8px;
+  background: var(--navy-light);
+  color: var(--navy-mid);
+  border-radius: 40px;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════════════════════════ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  align-items: start;
+}
+.testimonial-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+  position: relative;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.testimonial-card.featured {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-color: transparent;
+  color: var(--white);
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+.testimonial-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+.testimonial-card::before {
+  content: '"';
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  color: var(--saffron);
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  line-height: 1;
+  opacity: 0.4;
+}
+.testimonial-card p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+.testimonial-card.featured p { color: rgba(255,255,255,0.9); }
+.testimonial-card footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+.testimonial-card.featured footer { border-color: rgba(255,255,255,0.2); }
+.testimonial-card strong { font-size: 0.9rem; color: var(--navy-mid); }
+.testimonial-card.featured strong { color: var(--saffron); }
+.testimonial-card cite { font-size: 0.78rem; color: var(--text-muted); font-style: normal; }
+.testimonial-card.featured cite { color: rgba(255,255,255,0.65); }
+
+/* ═══════════════════════════════════════════════════════════════
+   SCHEDULE TABLE
+═══════════════════════════════════════════════════════════════ */
+.schedule-table-wrap { overflow-x: auto; margin-top: 32px; border-radius: var(--radius); box-shadow: var(--shadow); }
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  font-size: 0.9rem;
+}
+.schedule-table th {
+  background: var(--navy-mid);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-align: left;
+  padding: 14px 16px;
+  white-space: nowrap;
+}
+.schedule-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: middle;
+}
+.schedule-table tr:last-child td { border-bottom: none; }
+.schedule-table tr:hover td { background: var(--navy-light); }
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.badge-open { background: var(--green-light); color: var(--success); }
+.badge-limited { background: #FFF3E0; color: #E65100; }
+.badge-full { background: #FFEBEE; color: var(--error); }
+.btn-table {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: background var(--transition);
+}
+.btn-table:hover { background: var(--navy-mid); }
+
+/* ═══════════════════════════════════════════════════════════════
+   DAILY UPDATES
+═══════════════════════════════════════════════════════════════ */
+.updates-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 36px;
+  align-items: start;
+}
+.updates-feed { display: flex; flex-direction: column; gap: 0; }
+.update-item {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.update-item:first-child { padding-top: 0; }
+.update-cat {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 40px;
+  font-size: 0.7rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+.cat-tn { background: var(--saffron-light); color: #E65100; }
+.cat-women { background: #FCE4EC; color: #C2185B; }
+.cat-national { background: var(--navy-light); color: var(--navy-mid); }
+.update-headline { font-size: 0.92rem; color: var(--text); line-height: 1.5; font-weight: 500; }
+.update-date { font-size: 0.75rem; color: var(--text-muted); }
+
+.subscribe-card {
+  background: var(--navy-light);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+.subscribe-card h3 { font-size: 1.05rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 8px; }
+.subscribe-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+.subscribe-card input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  background: var(--surface);
+  transition: border-color var(--transition);
+}
+.subscribe-card input:focus { outline: none; border-color: var(--navy); }
+.subscribe-card button { margin-top: 8px; }
+
+/* ═══════════════════════════════════════════════════════════════
+   JOIN SECTION
+═══════════════════════════════════════════════════════════════ */
+.join-section {
+  background: linear-gradient(135deg, var(--saffron-light) 0%, var(--green-light) 100%);
+  text-align: center;
+}
+.join-section h2 { font-size: 2rem; color: var(--navy-mid); margin-bottom: 12px; }
+.join-section > .container > p { color: var(--text-muted); margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+.join-options {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.join-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.join-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+.join-saffron { background: var(--saffron); color: var(--navy); }
+.join-green { background: var(--green); color: var(--white); }
+.join-navy { background: var(--navy); color: var(--white); }
+.join-disclaimer { font-size: 0.78rem; color: var(--text-muted); max-width: 480px; margin: 0 auto; }
+
+/* ═══════════════════════════════════════════════════════════════
+   REGISTRATION FORM
+═══════════════════════════════════════════════════════════════ */
+.reg-form { max-width: 800px; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.field-group { display: flex; flex-direction: column; gap: 6px; }
+.field-full { grid-column: 1 / -1; }
+.field-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+}
+.field-group input,
+.field-group select,
+.field-group textarea {
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+}
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(0,0,128,0.1);
+}
+.field-group input.invalid,
+.field-group select.invalid,
+.field-group textarea.invalid {
+  border-color: var(--error);
+}
+.field-group textarea { resize: vertical; min-height: 100px; }
+.field-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235C5C7A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+.form-privacy { font-size: 0.78rem; color: var(--text-muted); margin-top: 12px; text-align: center; }
+
+/* ═══════════════════════════════════════════════════════════════
+   DONATION
+═══════════════════════════════════════════════════════════════ */
+.donate-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+.amount-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.amount-btn {
+  padding: 10px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+.amount-btn:hover { border-color: var(--navy); color: var(--navy); }
+.amount-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+.pay-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin: 16px 0 0;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0;
+}
+.pay-tab {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color var(--transition), border-color var(--transition);
+}
+.pay-tab:hover { color: var(--navy); }
+.pay-tab.active { color: var(--navy); border-bottom-color: var(--navy); font-weight: 600; }
+.pay-panel { display: none; padding: 20px 0; }
+.pay-panel.active { display: block; }
+.pay-note {
+  background: var(--navy-light);
+  border-radius: var(--radius);
+  padding: 16px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.upi-box {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.qr-placeholder {
+  width: 140px;
+  height: 140px;
+  background: var(--navy-light);
+  border: 2px dashed var(--navy);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  gap: 6px;
+}
+.qr-icon { font-size: 2.2rem; }
+.qr-placeholder p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
+.qr-apps { font-size: 0.68rem !important; color: var(--text-muted); }
+.upi-id-box { display: flex; flex-direction: column; gap: 8px; }
+.upi-id-box p { font-size: 0.85rem; color: var(--text-muted); }
+.upi-id-box code {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--navy-light);
+  padding: 6px 14px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+.btn-copy {
+  padding: 6px 14px;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  width: fit-content;
+  transition: background var(--transition);
+}
+.btn-copy:hover { background: var(--navy-mid); }
+
+.bank-details table.bank-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.bank-table tr { border-bottom: 1px solid var(--border); }
+.bank-table td { padding: 10px 12px; }
+.bank-table td:first-child { color: var(--text-muted); width: 40%; font-weight: 500; }
+.bank-table td:last-child { color: var(--text); font-weight: 600; }
+
+.donate-info-col { display: flex; flex-direction: column; gap: 16px; }
+.donate-info-card {
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+}
+.donate-info-card h3 { font-size: 0.97rem; font-weight: 600; color: var(--navy-mid); margin-bottom: 8px; }
+.donate-info-card p { font-size: 0.84rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 14px; }
+.donate-info-card p:last-child { margin-bottom: 0; }
+
+/* ═══════════════════════════════════════════════════════════════
+   GALLERY
+═══════════════════════════════════════════════════════════════ */
+.gallery-filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.gallery-filter {
+  padding: 8px 18px;
+  border-radius: 40px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: all var(--transition);
+}
+.gallery-filter:hover, .gallery-filter.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.gallery-item { margin: 0; position: relative; overflow: hidden; border-radius: 10px; }
+.gallery-item.hidden-item { display: none; }
+.gallery-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.35s ease;
+}
+.gallery-item:hover .gallery-placeholder { transform: scale(1.04); }
+.gallery-placeholder span {
+  color: rgba(255,255,255,0.85);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.gallery-item figcaption {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 8px 2px 2px;
+  text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════════════════════════ */
+.faq-list { display: flex; flex-direction: column; gap: 8px; margin-top: 32px; }
+.faq-item {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.faq-item[open] {
+  border-color: var(--navy);
+  box-shadow: 0 2px 12px rgba(0,0,128,0.08);
+}
+.faq-item summary {
+  padding: 18px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--navy-mid);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background var(--transition);
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.3rem;
+  color: var(--saffron);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  font-weight: 700;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item summary:hover { background: var(--navy-light); }
+.faq-answer {
+  padding: 0 20px 18px;
+  border-top: 1px solid var(--border);
+}
+.faq-answer p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  padding-top: 14px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SOCIAL SHARE
+═══════════════════════════════════════════════════════════════ */
+#social { text-align: center; }
+#social .section-title { margin-bottom: 32px; }
+.social-icons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.social-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.social-icon:hover { transform: translateY(-3px) scale(1.1); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+.si-facebook:hover { background: #1877F2; color: #fff; border-color: #1877F2; }
+.si-twitter:hover { background: #000; color: #fff; border-color: #000; }
+.si-instagram:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: #fff; border: none; }
+.si-youtube:hover { background: #FF0000; color: #fff; border-color: #FF0000; }
+.si-whatsapp:hover { background: #25D366; color: #fff; border-color: #25D366; }
+.si-telegram:hover { background: #2CA5E0; color: #fff; border-color: #2CA5E0; }
+.si-linkedin:hover { background: #0077B5; color: #fff; border-color: #0077B5; }
+.si-koo:hover { background: #F7C500; color: #333; border-color: #F7C500; }
+#share-btn { margin: 0 auto; display: block; }
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════════ */
+#site-footer {
+  background: var(--navy-mid);
+  color: rgba(255,255,255,0.85);
+}
+.footer-tricolour { height: 4px; }
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding: 56px 24px;
+}
+.footer-logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.footer-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  color: var(--saffron);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.footer-disclaimer {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+.footer-col h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 8px; }
+.footer-col ul a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  transition: color var(--transition);
+}
+.footer-col ul a:hover { color: var(--saffron); }
+.footer-col p {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+.footer-social { display: flex; gap: 10px; flex-wrap: wrap; }
+.footer-social a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  transition: background var(--transition), color var(--transition);
+}
+.footer-social a:hover { background: var(--saffron); color: var(--navy); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding: 18px 24px;
+  text-align: center;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+
+/* ═══════════════════════════════════════════════════════════════
+   BACK TO TOP
+═══════════════════════════════════════════════════════════════ */
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0,0,128,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background var(--transition);
+  z-index: 999;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { background: var(--saffron); color: var(--navy); }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — 1100px
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .trainers-grid { grid-template-columns: repeat(2, 1fr); }
+  .programs-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — 900px
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  #main-nav, .header-actions .font-controls, .header-actions .btn-primary, .theme-toggle { display: none; }
+  #nav-toggle { display: flex; }
+  .header-actions { gap: 6px; }
+  #main-nav.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: var(--header-h);
+    left: 0; right: 0;
+    background: var(--surface);
+    border-top: 2px solid var(--saffron);
+    box-shadow: var(--shadow-lg);
+    z-index: 999;
+    padding: 16px 0;
+  }
+  #main-nav.open ul { flex-direction: column; gap: 2px; padding: 0 16px; }
+  #main-nav.open a { display: block; padding: 12px 16px; font-size: 1rem; border-radius: var(--radius); }
+  /* Font / theme controls inside mobile nav */
+  .mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+  .women-layout,
+  .updates-layout,
+  .donate-layout { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial-card.featured { transform: none; }
+  .hero-stats .stat { padding: 8px 16px; }
+  .pathway-steps { flex-direction: column; align-items: center; }
+  .step-arrow { transform: rotate(90deg); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE — 640px
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .section { padding: 56px 0; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .programs-grid { grid-template-columns: 1fr; }
+  .trainers-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { flex-direction: column; gap: 8px; }
+  .hero-stats .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 10px 8px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; padding: 40px 24px; }
+  .women-stats { flex-direction: column; }
+  .donate-layout { grid-template-columns: 1fr; }
+  .header-inner { padding: 0 14px; }
+  .logo-sub { display: none; }
+  .amount-selector { gap: 6px; }
+  .amount-btn { padding: 8px 10px; font-size: 0.82rem; }
+  .schedule-table { font-size: 0.8rem; }
+  .schedule-table th, .schedule-table td { padding: 10px 10px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PRINT STYLES
+═══════════════════════════════════════════════════════════════ */
+@media print {
+  #site-header, #site-footer, .back-to-top, #share-btn, .hero-actions, .join-options { display: none; }
+  body { font-size: 12pt; color: #000; }
+  .section { padding: 20pt 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-up { animation: fadeUp 0.55s ease both; }
+  </style>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇮🇳</text></svg>">
 </head>
-<body class="yw-wp-compatible">
-  <!-- Main Wrapper -->
-  <div id="yw-root">
-    
-    <!-- Header Section -->
-    <header id="header" class="yw-header">
-      <!-- Navigation Area -->
-      <nav id="navigation" class="yw-navbar">
-        <a href="index.html" class="yw-logo" aria-label="Tamil Nadu Youth Political Workshop Home">
-          <span class="ti ti-building-monument yw-logo-icon"></span>
-          <span class="yw-logo-text">TN Youth Political Workshop</span>
-        </a>
-        <button id="yw-nav-toggle" class="yw-nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="yw-nav-menu">
-          <span class="yw-hamburger-bar"></span>
-          <span class="yw-hamburger-bar"></span>
-          <span class="yw-hamburger-bar"></span>
-        </button>
-        <ul class="yw-nav-menu" id="yw-nav-menu">
-          <li class="yw-nav-item"><a href="index.html" class="yw-nav-link yw-active">Home</a></li>
-          <li class="yw-nav-item"><a href="gallery.html" class="yw-nav-link">Gallery</a></li>
-          <li class="yw-nav-item"><a href="donate.html" class="yw-nav-link">Donate</a></li>
-          <li class="yw-nav-item"><a href="contact.html" class="yw-nav-link">Contact</a></li>
-        </ul>
-      </nav>
-      <!-- Accessibility and Theme Controls -->
-      <div class="yw-controls-panel">
-        <button id="yw-font-dec" class="yw-control-btn" aria-label="Decrease font size">A-</button>
-        <button id="yw-font-reset" class="yw-control-btn" aria-label="Default font size">A</button>
-        <button id="yw-font-inc" class="yw-control-btn" aria-label="Increase font size">A+</button>
-        <button id="yw-theme-toggle" class="yw-control-btn" aria-label="Toggle dark mode">
-          <i class="ti ti-moon yw-theme-icon-dark"></i>
-        </button>
+<body>
+
+<!-- ═══════════════════════════════════════ HEADER ═══════════════════════════════════════ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-flag">🇮🇳</span>
+      <div class="logo-text-group">
+        <span class="logo-text">TN Youth Workshop</span>
+        <span class="logo-sub">Tamil Nadu Government Initiative</span>
       </div>
-    </header>
-
-    <!-- Main Content Area -->
-    <main>
-      
-      <!-- Hero Section -->
-      <section id="hero" class="yw-hero-section">
-        <div class="yw-hero-overlay"></div>
-        <div class="yw-container yw-hero-content">
-          <div class="yw-hero-badge-container">
-            <!-- Ashoka Chakra inline SVG (Exactly 24 lines, 26 circles, aria-hidden="true") -->
-            <svg id="yw-ashoka-chakra" class="yw-ashoka-chakra" viewBox="0 0 200 200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-              <g>
-                <!-- Outer boundary of Chakra -->
-                <circle cx="100" cy="100" r="90" fill="none" stroke="#000080" stroke-width="4" />
-                <!-- Center circle (Center hub) -->
-                <circle cx="100" cy="100" r="8" fill="#000080" />
-                <!-- 24 spoke lines -->
-                <line x1="100.00" y1="100.00" x2="180.00" y2="100.00" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="177.27" y2="120.71" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="169.28" y2="140.00" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="156.57" y2="156.57" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="140.00" y2="169.28" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="120.71" y2="177.27" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="100.00" y2="180.00" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="79.29" y2="177.27" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="60.00" y2="169.28" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="43.43" y2="156.57" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="30.72" y2="140.00" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="22.73" y2="120.71" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="20.00" y2="100.00" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="22.73" y2="79.29" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="30.72" y2="60.00" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="43.43" y2="43.43" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="60.00" y2="30.72" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="79.29" y2="22.73" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="100.00" y2="20.00" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="120.71" y2="22.73" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="140.00" y2="30.72" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="156.57" y2="43.43" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="169.28" y2="60.00" stroke="#000080" stroke-width="2" />
-                <line x1="100.00" y1="100.00" x2="177.27" y2="79.29" stroke="#000080" stroke-width="2" />
-                <!-- 24 small circles (dots) at the edge -->
-                <circle cx="183.28" cy="110.96" r="2" fill="#000080" />
-                <circle cx="177.61" cy="132.15" r="2" fill="#000080" />
-                <circle cx="166.65" cy="151.14" r="2" fill="#000080" />
-                <circle cx="151.14" cy="166.65" r="2" fill="#000080" />
-                <circle cx="132.15" cy="177.61" r="2" fill="#000080" />
-                <circle cx="110.96" cy="183.28" r="2" fill="#000080" />
-                <circle cx="89.04" cy="183.28" r="2" fill="#000080" />
-                <circle cx="67.85" cy="177.61" r="2" fill="#000080" />
-                <circle cx="48.86" cy="166.65" r="2" fill="#000080" />
-                <circle cx="33.35" cy="151.14" r="2" fill="#000080" />
-                <circle cx="22.39" cy="132.15" r="2" fill="#000080" />
-                <circle cx="16.72" cy="110.96" r="2" fill="#000080" />
-                <circle cx="16.72" cy="89.04" r="2" fill="#000080" />
-                <circle cx="22.39" cy="67.85" r="2" fill="#000080" />
-                <circle cx="33.35" cy="48.86" r="2" fill="#000080" />
-                <circle cx="48.86" cy="33.35" r="2" fill="#000080" />
-                <circle cx="67.85" cy="22.39" r="2" fill="#000080" />
-                <circle cx="89.04" cy="16.72" r="2" fill="#000080" />
-                <circle cx="110.96" cy="16.72" r="2" fill="#000080" />
-                <circle cx="132.15" cy="22.39" r="2" fill="#000080" />
-                <circle cx="151.14" cy="33.35" r="2" fill="#000080" />
-                <circle cx="166.65" cy="48.86" r="2" fill="#000080" />
-                <circle cx="177.61" cy="67.85" r="2" fill="#000080" />
-                <circle cx="183.28" cy="89.04" r="2" fill="#000080" />
-              </g>
-            </svg>
-          </div>
-          <h1 class="yw-hero-title">Empowering the Next Generation of Civic Leaders in Tamil Nadu</h1>
-          <p class="yw-hero-subtitle">Participate in our non-partisan workshops to understand legislative systems, master grassroots campaigning, and drive local development initiatives.</p>
-          <div class="yw-hero-actions">
-            <a href="#programs" class="yw-btn yw-btn-primary">Explore Programs</a>
-            <a href="#registration" class="yw-btn yw-btn-secondary">Register Now</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Section -->
-      <section id="about" class="yw-about-section">
-        <div class="yw-container">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">OUR MISSION</span>
-            <h2 class="yw-section-title">About the Workshop</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          <div class="yw-about-content">
-            <p class="yw-about-text">
-              The Tamil Nadu Youth Political Workshop is a dedicated non-partisan initiative aimed at transforming passionate young citizens into active public leaders. By demystifying the operations of democracy and providing concrete training, we bridge the gap between community needs and systemic governance.
-            </p>
-            <div class="yw-pillars-grid">
-              <div class="yw-pillar-card">
-                <div class="yw-pillar-icon-wrapper">
-                  <i class="ti ti-library yw-pillar-icon" aria-hidden="true"></i>
-                </div>
-                <h3 class="yw-pillar-title">Governance Literacy</h3>
-                <p class="yw-pillar-desc">Explore the architecture of power from the Gram Panchayat to the State Secretariat.</p>
-              </div>
-              <div class="yw-pillar-card">
-                <div class="yw-pillar-icon-wrapper">
-                  <i class="ti ti-edit yw-pillar-icon" aria-hidden="true"></i>
-                </div>
-                <h3 class="yw-pillar-title">Policy Formulation</h3>
-                <p class="yw-pillar-desc">Develop research, drafting, and analysis skills to design effective public policies.</p>
-              </div>
-              <div class="yw-pillar-card">
-                <div class="yw-pillar-icon-wrapper">
-                  <i class="ti ti-speakerphone yw-pillar-icon" aria-hidden="true"></i>
-                </div>
-                <h3 class="yw-pillar-title">Public Advocacy</h3>
-                <p class="yw-pillar-desc">Learn community mobilization, coalition building, and data-driven communication.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Why Women Section -->
-      <section id="why-women" class="yw-why-women-section">
-        <div class="yw-container">
-          <div class="yw-why-women-grid">
-            <div class="yw-why-women-content">
-              <div class="yw-section-header yw-left-align">
-                <span class="yw-section-tagline">GENDER INCLUSION</span>
-                <h2 class="yw-section-title">Fostering Female Leadership</h2>
-                <div class="yw-section-divider"></div>
-              </div>
-              <p class="yw-why-women-text">
-                Tamil Nadu has been a pioneer in legislative gender representation, reserving 50% of local body seats for women. However, effective political power requires specialized training, strategic mentoring, and robust networks. Our curriculum focuses on empowering young women to assume decision-making roles in panchayats, municipalities, and policy research institutions.
-              </p>
-              <div class="yw-why-women-stats yw-patriotism-strip">
-                <div class="yw-stat-item">
-                  <span class="yw-stat-number" data-target="50">50%</span>
-                  <span class="yw-stat-label">Local Body Reservation</span>
-                </div>
-                <div class="yw-stat-item">
-                  <span class="yw-stat-number" data-target="1000">1000+</span>
-                  <span class="yw-stat-label">Women Leaders Mentored</span>
-                </div>
-              </div>
-            </div>
-            <div class="yw-why-women-visual">
-              <div class="yw-why-women-visual-card">
-                <i class="ti ti-gender-female yw-visual-icon" aria-hidden="true"></i>
-                <blockquote class="yw-visual-quote">
-                  "True representation begins when women do not just hold office, but hold the power to shape legislative discourse."
-                </blockquote>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pathway Section -->
-      <section id="pathway" class="yw-pathway-section">
-        <div class="yw-container">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">THE ROADMAP</span>
-            <h2 class="yw-section-title">Your Leadership Journey</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          <div class="yw-timeline">
-            <div class="yw-timeline-step">
-              <div class="yw-step-number">1</div>
-              <div class="yw-step-content">
-                <h3 class="yw-step-title">Submit Application</h3>
-                <p class="yw-step-desc">Register online and share your community goals and workshop interests.</p>
-              </div>
-            </div>
-            <div class="yw-timeline-step">
-              <div class="yw-step-number">2</div>
-              <div class="yw-step-content">
-                <h3 class="yw-step-title">Core Instruction</h3>
-                <p class="yw-step-desc">Attend intensive modules covering policy, election tracking, and local budgets.</p>
-              </div>
-            </div>
-            <div class="yw-timeline-step">
-              <div class="yw-step-number">3</div>
-              <div class="yw-step-content">
-                <h3 class="yw-step-title">Civic Action Project</h3>
-                <p class="yw-step-desc">Apply your skills to design a solution for a real-world community challenge.</p>
-              </div>
-            </div>
-            <div class="yw-timeline-step">
-              <div class="yw-step-number">4</div>
-              <div class="yw-step-content">
-                <h3 class="yw-step-title">Certification &amp; Network</h3>
-                <p class="yw-step-desc">Graduate with a verified certificate and join our active alumni network.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Programs Section (5 Items) -->
-      <section id="programs" class="yw-programs-section">
-        <div class="yw-container">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">CURRICULUM</span>
-            <h2 class="yw-section-title">Workshop Programs</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          
-          <div class="yw-programs-grid">
-            <!-- Program 1 -->
-            <article class="yw-program-card">
-              <div class="yw-program-icon-box">
-                <i class="ti ti-subtask" aria-hidden="true"></i>
-              </div>
-              <h3 class="yw-program-title">Local Governance &amp; Panchayati Raj</h3>
-              <p class="yw-program-desc">Study the Gram Sabha structure, the 73rd &amp; 74th Amendments, and municipal operations in Tamil Nadu to drive local governance reform.</p>
-            </article>
-
-            <!-- Program 2 -->
-            <article class="yw-program-card">
-              <div class="yw-program-icon-box">
-                <i class="ti ti-file-text" aria-hidden="true"></i>
-              </div>
-              <h3 class="yw-program-title">Public Policy Formulation</h3>
-              <p class="yw-program-desc">Develop research skills, learn to analyze legislative bills, draft policy briefs, and understand how state legislation impacts local communities.</p>
-            </article>
-
-            <!-- Program 3 -->
-            <article class="yw-program-card">
-              <div class="yw-program-icon-box">
-                <i class="ti ti-users" aria-hidden="true"></i>
-              </div>
-              <h3 class="yw-program-title">Grassroots Organizing &amp; Campaigning</h3>
-              <p class="yw-program-desc">Master volunteer management, door-to-door canvassing strategies, coalition building, and campaign compliance without partisan bias.</p>
-            </article>
-
-            <!-- Program 4 -->
-            <article class="yw-program-card">
-              <div class="yw-program-icon-box">
-                <i class="ti ti-brand-twitter" aria-hidden="true"></i>
-              </div>
-              <h3 class="yw-program-title">Digital Advocacy &amp; Communications</h3>
-              <p class="yw-program-desc">Learn safe, ethical digital messaging, media relation strategies, graphic advocacy tools, and online community mobilization techniques.</p>
-            </article>
-
-            <!-- Program 5 -->
-            <article class="yw-program-card">
-              <div class="yw-program-icon-box">
-                <i class="ti ti-chart-bar" aria-hidden="true"></i>
-              </div>
-              <h3 class="yw-program-title">Public Budgeting &amp; Municipal Finance</h3>
-              <p class="yw-program-desc">Decode public spending reports, analyze municipal audit sheets, and learn how state and central grants are distributed to districts.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Speakers Section (4 Items: 2 Women, 2 Men) -->
-      <section id="speakers" class="yw-speakers-section">
-        <div class="yw-container">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">FACULTY</span>
-            <h2 class="yw-section-title">Distinguished Speakers &amp; Trainers</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          
-          <div class="yw-speakers-grid">
-            <!-- Speaker 1 (Woman) -->
-            <div class="yw-speaker-card" data-name="Dr. Arulmozhi">
-              <div class="yw-speaker-avatar-wrapper">
-                <div class="yw-speaker-avatar yw-female-avatar"></div>
-              </div>
-              <h3 class="yw-speaker-name">Dr. Arulmozhi</h3>
-              <h4 class="yw-speaker-role">Governance &amp; Policy Analyst</h4>
-              <p class="yw-speaker-bio">Former consultant to state departments, specializing in decentralized planning and rural administrative reforms.</p>
-            </div>
-
-            <!-- Speaker 2 (Woman) -->
-            <div class="yw-speaker-card" data-name="Ms. Kanimozhi">
-              <div class="yw-speaker-avatar-wrapper">
-                <div class="yw-speaker-avatar yw-female-avatar"></div>
-              </div>
-              <h3 class="yw-speaker-name">Ms. Kanimozhi</h3>
-              <h4 class="yw-speaker-role">Grassroots Campaign Specialist</h4>
-              <p class="yw-speaker-bio">Veteran community organizer with 12 years of experience building coalition campaigns for village panchayats.</p>
-            </div>
-
-            <!-- Speaker 3 (Man) -->
-            <div class="yw-speaker-card" data-name="Mr. Saravanan">
-              <div class="yw-speaker-avatar-wrapper">
-                <div class="yw-speaker-avatar yw-male-avatar"></div>
-              </div>
-              <h3 class="yw-speaker-name">Mr. Saravanan</h3>
-              <h4 class="yw-speaker-role">Civic Communication Lead</h4>
-              <p class="yw-speaker-bio">Advocate of ethical communication systems, guiding digital media platforms on transparency and public engagement.</p>
-            </div>
-
-            <!-- Speaker 4 (Man) -->
-            <div class="yw-speaker-card" data-name="Mr. Venkatesh">
-              <div class="yw-speaker-avatar-wrapper">
-                <div class="yw-speaker-avatar yw-male-avatar"></div>
-              </div>
-              <h3 class="yw-speaker-name">Mr. Venkatesh</h3>
-              <h4 class="yw-speaker-role">Municipal Finance Expert</h4>
-              <p class="yw-speaker-bio">Chartered accountant and advisor on local body budget tracking, specializing in fiscal accountability.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Testimonials Section (3 Items) -->
-      <section id="testimonials" class="yw-testimonials-section">
-        <div class="yw-container">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">FEEDBACK</span>
-            <h2 class="yw-section-title">Alumni Success Stories</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          
-          <div class="yw-testimonials-grid">
-            <!-- Testimonial 1 -->
-            <blockquote class="yw-testimonial-card">
-              <p class="yw-testimonial-text">"Understanding Panchayat budgeting helped us coordinate with local officials in Salem. We successfully tracked municipal funds to construct a community library."</p>
-              <cite class="yw-testimonial-author">
-                <span class="yw-testimonial-name">Priyanka M.</span>
-                <span class="yw-testimonial-details">Salem District, 2024 Alumni</span>
-              </cite>
-            </blockquote>
-
-            <!-- Testimonial 2 -->
-            <blockquote class="yw-testimonial-card">
-              <p class="yw-testimonial-text">"The non-partisan environment let us collaborate across diverse views. The policy formulation tools gave me the capability to write policy briefs for local administration."</p>
-              <cite class="yw-testimonial-author">
-                <span class="yw-testimonial-name">Rahul S.</span>
-                <span class="yw-testimonial-details">Madurai District, 2025 Alumni</span>
-              </cite>
-            </blockquote>
-
-            <!-- Testimonial 3 -->
-            <blockquote class="yw-testimonial-card">
-              <p class="yw-testimonial-text">"I joined the digital advocacy track and learned safe online organizing. Our environmental volunteer group in Trichy has quadrupled in active membership."</p>
-              <cite class="yw-testimonial-author">
-                <span class="yw-testimonial-name">Deepika R.</span>
-                <span class="yw-testimonial-details">Trichy District, 2025 Alumni</span>
-              </cite>
-            </blockquote>
-          </div>
-        </div>
-      </section>
-
-      <!-- Schedule Section -->
-      <section id="schedule" class="yw-schedule-section">
-        <div class="yw-container">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">UPCOMING BATCHES</span>
-            <h2 class="yw-section-title">Workshop Schedule</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          
-          <div class="yw-schedule-table-wrapper">
-            <table class="yw-schedule-table">
-              <thead>
-                <tr>
-                  <th scope="col">Program</th>
-                  <th scope="col">Location</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr data-status="open">
-                  <td>Local Governance &amp; Panchayati Raj</td>
-                  <td>Coimbatore</td>
-                  <td>July 15, 2026</td>
-                  <td><span class="yw-badge yw-badge-open">Open</span></td>
-                  <td><a href="#registration" class="yw-btn yw-btn-table yw-register-link" data-interest="Local Governance &amp; Panchayati Raj">Register</a></td>
-                </tr>
-                <tr data-status="limited">
-                  <td>Public Policy Formulation</td>
-                  <td>Chennai</td>
-                  <td>August 02, 2026</td>
-                  <td><span class="yw-badge yw-badge-limited">Limited</span></td>
-                  <td><a href="#registration" class="yw-btn yw-btn-table yw-register-link" data-interest="Public Policy Formulation">Register</a></td>
-                </tr>
-                <tr data-status="soldout">
-                  <td>Grassroots Campaigning</td>
-                  <td>Madurai</td>
-                  <td>August 28, 2026</td>
-                  <td><span class="yw-badge yw-badge-soldout">Sold Out</span></td>
-                  <td><button class="yw-btn yw-btn-table yw-btn-disabled" disabled>Closed</button></td>
-                </tr>
-                <tr data-status="open">
-                  <td>Digital Advocacy</td>
-                  <td>Online (Virtual)</td>
-                  <td>September 12, 2026</td>
-                  <td><span class="yw-badge yw-badge-open">Open</span></td>
-                  <td><a href="#registration" class="yw-btn yw-btn-table yw-register-link" data-interest="Digital Advocacy &amp; Communications">Register</a></td>
-                </tr>
-                <tr data-status="open">
-                  <td>Municipal Finance</td>
-                  <td>Trichy</td>
-                  <td>October 05, 2026</td>
-                  <td><span class="yw-badge yw-badge-open">Open</span></td>
-                  <td><a href="#registration" class="yw-btn yw-btn-table yw-register-link" data-interest="Public Budgeting &amp; Municipal Finance">Register</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- Updates Section -->
-      <section id="updates" class="yw-updates-section">
-        <div class="yw-container">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">ANNOUNCEMENTS</span>
-            <h2 class="yw-section-title">Latest Updates &amp; News</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          
-          <div class="yw-updates-grid">
-            <article class="yw-update-card">
-              <time class="yw-update-date" datetime="2026-06-10">June 10, 2026</time>
-              <h3 class="yw-update-title">Madurai Batch Highlights</h3>
-              <p class="yw-update-excerpt">Over 120 young leaders participated in our legislative drafting simulation, creating five draft resolutions for environmental conservation.</p>
-            </article>
-            
-            <article class="yw-update-card">
-              <time class="yw-update-date" datetime="2026-05-24">May 24, 2026</time>
-              <h3 class="yw-update-title">Panchayat Mentorship Launch</h3>
-              <p class="yw-update-excerpt">We are excited to launch the local body mentoring system, pairing 30 female ward councillors with governance advisors.</p>
-            </article>
-
-            <article class="yw-update-card">
-              <time class="yw-update-date" datetime="2026-05-15">May 15, 2026</time>
-              <h3 class="yw-update-title">Annual Civic Assembly Summary</h3>
-              <p class="yw-update-excerpt">A summary of resolutions created by our alumni networks during the annual convention in Chennai has been sent to public planning officials.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Join Section -->
-      <section id="join" class="yw-join-section">
-        <div class="yw-container">
-          <div class="yw-join-wrapper">
-            <h2 class="yw-join-title">Ready to Champion Local Leadership?</h2>
-            <p class="yw-join-desc">Sign up for our newsletter to get campaign kits, governance analysis, and notifications about workshop applications in your district.</p>
-            <form id="yw-join-form" class="yw-join-form">
-              <div class="yw-join-input-group">
-                <label for="yw-join-email" class="yw-sr-only">Email Address</label>
-                <input type="email" id="yw-join-email" name="join_email" placeholder="Enter your email address" class="yw-join-input" required>
-                <button type="submit" class="yw-btn yw-btn-primary">Subscribe</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- Registration Section -->
-      <section id="registration" class="yw-registration-section">
-        <div class="yw-container yw-form-container-box">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">APPLY NOW</span>
-            <h2 class="yw-section-title">Workshop Registration Form</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          
-          <form id="yw-registration-form" class="yw-form yw-reg-form">
-            <!-- WordPress AJAX compatibility field -->
-            <input type="hidden" name="action" value="yw_workshop_register">
-            
-            <div class="yw-form-grid">
-              <div class="yw-form-group">
-                <label for="yw-field-name" class="yw-form-label">Full Name</label>
-                <input type="text" id="yw-field-name" name="name" class="yw-form-input" placeholder="e.g. Priyan Subramaniam" required>
-              </div>
-              
-              <div class="yw-form-group">
-                <label for="yw-field-email" class="yw-form-label">Email Address</label>
-                <input type="email" id="yw-field-email" name="email" class="yw-form-input" placeholder="e.g. priyan@example.com" required>
-              </div>
-              
-              <div class="yw-form-group">
-                <label for="yw-field-phone" class="yw-form-label">Phone Number (Optional)</label>
-                <input type="tel" id="yw-field-phone" name="phone" class="yw-form-input" placeholder="e.g. +91 9876543210">
-              </div>
-              
-              <div class="yw-form-group">
-                <label for="yw-field-interest" class="yw-form-label">Select Workshop Interest</label>
-                <select id="yw-field-interest" name="interest" class="yw-form-select" required>
-                  <option value="">-- Please select a program --</option>
-                  <option value="Local Governance &amp; Panchayati Raj">Local Governance &amp; Panchayati Raj</option>
-                  <option value="Public Policy Formulation">Public Policy Formulation</option>
-                  <option value="Grassroots Campaigning">Grassroots Campaigning</option>
-                  <option value="Digital Advocacy &amp; Communications">Digital Advocacy &amp; Communications</option>
-                  <option value="Public Budgeting &amp; Municipal Finance">Public Budgeting &amp; Municipal Finance</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="yw-form-group">
-              <label for="yw-field-message" class="yw-form-label">Additional Message / Leadership Goals</label>
-              <textarea id="yw-field-message" name="message" class="yw-form-textarea" rows="4" placeholder="Briefly share why you want to participate and what you hope to gain..."></textarea>
-            </div>
-            
-            <div class="yw-form-actions">
-              <button type="submit" id="yw-submit-btn" class="yw-btn yw-btn-primary yw-btn-block">Submit Application</button>
-            </div>
-            <p class="yw-form-privacy">Your data is secured. We will only use your contact details for workshop coordination and mentorship updates.</p>
-          </form>
-          <div id="yw-form-message-container" class="yw-form-response-message yw-hidden"></div>
-        </div>
-      </section>
-
-      <!-- FAQ Section (Exactly 10 Items) -->
-      <section id="faq" class="yw-faq-section">
-        <div class="yw-container">
-          <div class="yw-section-header">
-            <span class="yw-section-tagline">QUESTIONS</span>
-            <h2 class="yw-section-title">Frequently Asked Questions</h2>
-            <div class="yw-section-divider"></div>
-          </div>
-          
-          <div class="yw-faq-accordion">
-            <!-- FAQ 1 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">Who is eligible to participate in the workshops?</summary>
-              <div class="yw-faq-answer">
-                <p>Citizens residing in Tamil Nadu between the ages of 18 and 35 are eligible. We encourage applications from students, community organizers, village panchayat candidates, and local advocates.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 2 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">Is there an entry or registration fee for the workshop?</summary>
-              <div class="yw-faq-answer">
-                <p>No, the core workshop is completely free of charge. Selected participants will receive instructional guides, lunch, and certificate resources. Optional donations can be made to support the program.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 3 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">What is the selection process for the program?</summary>
-              <div class="yw-faq-answer">
-                <p>Since seats are limited to 40 per batch, candidates are selected based on their registration application form responses, leadership interest, and active civic involvement.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 4 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">Is this workshop affiliated with any political party?</summary>
-              <div class="yw-faq-answer">
-                <p>No, the workshop is strictly non-partisan. We focus on procedural systems, local governance rules, campaign mechanisms, and policy writing frameworks, independent of political ideologies.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 5 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">Are the sessions conducted in Tamil or English?</summary>
-              <div class="yw-faq-answer">
-                <p>Sessions are bilingual. The slides and reading materials are in English, while the lectures and case study debates are explained in both Tamil and English to ensure maximum accessibility.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 6 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">What does the Civic Action Project involve?</summary>
-              <div class="yw-faq-answer">
-                <p>The project requires participants to identify an issue in their local neighbourhood or ward, research the governing rules, write a policy brief or action plan, and submit it to the local authority.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 7 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">Do you offer travel or accommodation reimbursement?</summary>
-              <div class="yw-faq-answer">
-                <p>We do not provide accommodation. However, local travel allowances may be arranged for selected participants from marginalized backgrounds. Please request this during registration.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 8 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">Will I receive a certificate after completion?</summary>
-              <div class="yw-faq-answer">
-                <p>Yes, all participants who attend the entire scheduled module and submit their Civic Action Project will receive a verified Certificate of Civic Leadership.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 9 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">How can I join the alumni mentorship network?</summary>
-              <div class="yw-faq-answer">
-                <p>Once you graduate and receive your certificate, you will automatically receive an invitation link to the alumni portal and local district channels for ongoing mentorship.</p>
-              </div>
-            </details>
-
-            <!-- FAQ 10 -->
-            <details class="yw-faq-item">
-              <summary class="yw-faq-question">Are there virtual or online workshops available?</summary>
-              <div class="yw-faq-answer">
-                <p>Yes, the Digital Advocacy and Communication module is conducted online. All other modules are in-person to facilitate networking and interactive workshops.</p>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <!-- Social Share Section -->
-      <section id="social-share" class="yw-social-share-section">
-        <div class="yw-container yw-share-box">
-          <h2 class="yw-share-title">Help Us Build Better Communities</h2>
-          <p class="yw-share-text">Share this civic leadership opportunity with other young changemakers across Tamil Nadu.</p>
-          <div class="yw-share-actions">
-            <!-- Share button -->
-            <button id="yw-share-btn" class="yw-btn yw-btn-primary yw-share-btn">
-              <i class="ti ti-share yw-icon" aria-hidden="true"></i> Share Page
-            </button>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Footer Section -->
-    <footer id="footer" class="yw-footer">
-      <div class="yw-container yw-footer-grid">
-        <div class="yw-footer-brand">
-          <a href="index.html" class="yw-logo yw-logo-footer" aria-label="Tamil Nadu Youth Political Workshop Home">
-            <span class="ti ti-building-monument yw-logo-icon"></span>
-            <span class="yw-logo-text">TN Youth Political Workshop</span>
-          </a>
-          <p class="yw-footer-tagline">Building informed, active, and collaborative civic leadership among the youth of Tamil Nadu.</p>
-        </div>
-        
-        <div class="yw-footer-nav">
-          <h4 class="yw-footer-title">Navigation</h4>
-          <ul class="yw-footer-links-list">
-            <li><a href="index.html" class="yw-footer-link">Home</a></li>
-            <li><a href="gallery.html" class="yw-footer-link">Gallery</a></li>
-            <li><a href="donate.html" class="yw-footer-link">Donate</a></li>
-            <li><a href="contact.html" class="yw-footer-link">Contact Us</a></li>
-            <li><a href="terms.html" class="yw-footer-link">Terms of Use</a></li>
-          </ul>
-        </div>
-        
-        <div class="yw-footer-social">
-          <h4 class="yw-footer-title">Connect with Us</h4>
-          <div class="yw-social-icons">
-            <!-- 8 platform links in footer -->
-            <a href="https://x.com" class="yw-social-icon-link" aria-label="X (formerly Twitter)" target="_blank" rel="noopener"><i class="ti ti-brand-x" aria-hidden="true"></i></a>
-            <a href="https://linkedin.com" class="yw-social-icon-link" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></a>
-            <a href="https://facebook.com" class="yw-social-icon-link" aria-label="Facebook" target="_blank" rel="noopener"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
-            <a href="https://youtube.com" class="yw-social-icon-link" aria-label="YouTube" target="_blank" rel="noopener"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
-            <a href="https://instagram.com" class="yw-social-icon-link" aria-label="Instagram" target="_blank" rel="noopener"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
-            <a href="https://whatsapp.com" class="yw-social-icon-link" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
-            <a href="https://telegram.org" class="yw-social-icon-link" aria-label="Telegram" target="_blank" rel="noopener"><i class="ti ti-brand-telegram" aria-hidden="true"></i></a>
-            <a href="https://threads.net" class="yw-social-icon-link" aria-label="Threads" target="_blank" rel="noopener"><i class="ti ti-brand-threads" aria-hidden="true"></i></a>
-          </div>
-        </div>
+    </a>
+    <nav id="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#women">Women in Politics</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#updates">Daily Updates</a></li>
+        <li><a href="#registration">Register</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <div class="font-controls" aria-label="Text size">
+        <button class="font-btn" data-size="sm" aria-label="Small text">A-</button>
+        <button class="font-btn active" data-size="md" aria-label="Medium text">A</button>
+        <button class="font-btn" data-size="lg" aria-label="Large text">A+</button>
       </div>
-      
-      <div class="yw-footer-bottom">
-        <div class="yw-container">
-          <p class="yw-copyright">&copy; 2026 Tamil Nadu Youth Political Workshop. All rights reserved. Non-partisan civic training platform.</p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Back to top button -->
-    <button id="yw-back-to-top" class="yw-back-to-top yw-hidden" aria-label="Back to top">
-      <i class="ti ti-chevron-up" aria-hidden="true"></i>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <a href="#registration" class="btn-primary">Join Now</a>
+    </div>
+    <button id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
-    
   </div>
+  <div class="tricolour-bar" aria-hidden="true">
+    <div class="tc-saffron"></div>
+    <div class="tc-white"></div>
+    <div class="tc-green"></div>
+  </div>
+</header>
 
-  <!-- Main JavaScript File -->
-  <script src="main.js" defer></script>
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg-pattern" aria-hidden="true">
+    <svg class="chakra-watermark" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="100" cy="100" r="95" fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.15"/>
+      <circle cx="100" cy="100" r="10" fill="#FFFFFF" opacity="0.15"/>
+      <!-- 24 Spokes at 15° intervals -->
+      <line x1="112" y1="100" x2="190" y2="100" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="111.59" y1="103.11" x2="186.94" y2="123.29" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="110.39" y1="106" x2="177.94" y2="145" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="108.49" y1="108.49" x2="163.64" y2="163.64" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="106" y1="110.39" x2="145" y2="177.94" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="103.11" y1="111.59" x2="123.29" y2="186.94" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="100" y1="112" x2="100" y2="190" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="96.89" y1="111.59" x2="76.71" y2="186.94" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="94" y1="110.39" x2="55" y2="177.94" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="91.51" y1="108.49" x2="36.36" y2="163.64" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="89.61" y1="106" x2="22.06" y2="145" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="88.41" y1="103.11" x2="13.06" y2="123.29" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="88" y1="100" x2="10" y2="100" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="88.41" y1="96.89" x2="13.06" y2="76.71" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="89.61" y1="94" x2="22.06" y2="55" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="91.51" y1="91.51" x2="36.36" y2="36.36" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="94" y1="89.61" x2="55" y2="22.06" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="96.89" y1="88.41" x2="76.71" y2="13.06" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="100" y1="88" x2="100" y2="10" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="103.11" y1="88.41" x2="123.29" y2="13.06" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="106" y1="89.61" x2="145" y2="22.06" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="108.49" y1="91.51" x2="163.64" y2="36.36" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="110.39" y1="94" x2="177.94" y2="55" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <line x1="111.59" y1="96.89" x2="186.94" y2="76.71" stroke="#FFFFFF" stroke-width="1.5" opacity="0.3"/>
+      <!-- 24 Outer dots at r=88 -->
+      <circle cx="188" cy="100" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="184.97" cy="122.75" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="176.17" cy="144" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="162.23" cy="162.23" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="144" cy="176.17" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="122.75" cy="184.97" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="100" cy="188" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="77.25" cy="184.97" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="56" cy="176.17" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="37.77" cy="162.23" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="23.83" cy="144" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="15.03" cy="122.75" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="12" cy="100" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="15.03" cy="77.25" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="23.83" cy="56" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="37.77" cy="37.77" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="56" cy="23.83" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="77.25" cy="15.03" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="100" cy="12" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="122.75" cy="15.03" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="144" cy="23.83" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="162.23" cy="37.77" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="176.17" cy="56" r="3" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="184.97" cy="77.25" r="3" fill="#FFFFFF" opacity="0.3"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <span class="govt-badge">🏛️ Tamil Nadu Government Initiative</span>
+    <h1>Shaping India's Future —<br>One Young Leader at a Time</h1>
+    <p class="hero-sub">
+      Join Tamil Nadu's premier offline political leadership workshop for youth aged 18–35.
+      A 6–8 month transformative program empowering the next generation of civic leaders,
+      with dedicated tracks for women in politics.
+    </p>
+    <div class="hero-actions">
+      <a href="#registration" class="btn-primary btn-lg">Register for Workshop</a>
+      <a href="#donate" class="btn-outline btn-lg">Donate to the Cause</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong data-target="38">0</strong><span>Million+ Tamil Nadu Youth</span></div>
+      <div class="stat"><strong>6–8 Months</strong><span>Intensive Program</span></div>
+      <div class="stat"><strong>100%</strong><span>Government Backed</span></div>
+      <div class="stat"><strong>Bilingual</strong><span>Tamil &amp; English</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ ABOUT ═══════════════════════════════════════ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-label">OUR MISSION</div>
+    <h2 class="section-title">Who We Are</h2>
+    <p class="section-intro">
+      The Tamil Nadu Youth Political Workshop is an initiative of the Government of Tamil Nadu,
+      designed to bridge the gap between passionate young citizens and meaningful civic
+      participation. We demystify the political system — from Gram Panchayat to State
+      Secretariat — and equip participants with real, practical tools to enter public life
+      with confidence, ethics, and purpose.
+    </p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">🏛️</div>
+        <h3>Political Education</h3>
+        <p>Understand the Indian Constitution, state governance, and the roles of MLAs, MPs, and District Collectors.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">👩‍💼</div>
+        <h3>Women in Leadership</h3>
+        <p>Dedicated tracks empowering women to step into reserved seats, panchayat leadership, and state-level roles.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🗺️</div>
+        <h3>Pathway to Politics</h3>
+        <p>A clear, structured roadmap from civic volunteer to contesting elections and building a political career.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">📖</div>
+        <h3>Civic Knowledge</h3>
+        <p>Study real legislation, budget documents, and public policy frameworks that shape daily life in Tamil Nadu.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">📈</div>
+        <h3>Career in Politics</h3>
+        <p>Learn campaign management, voter mobilisation, and how to build a grassroots support network.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🇮🇳</div>
+        <h3>Nation First</h3>
+        <p>All programs are rooted in constitutional values — democracy, justice, equality, and secular governance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ WOMEN ═══════════════════════════════════════ -->
+<section id="women" class="section section-alt">
+  <div class="container">
+    <div class="section-label">GENDER INCLUSION</div>
+    <h2 class="section-title">Why We Champion Women in Politics</h2>
+    <div class="women-layout">
+      <div class="women-text">
+        <p>Tamil Nadu has been a national leader in women's political representation — reserving 50% of local body seats for women. Yet reserved seats alone cannot build true leadership. Our programme provides specialised training, confident public speaking skills, and a network of mentors who are themselves elected women leaders.</p>
+        <ul class="women-points">
+          <li>✅ Women-only batches with safe, supportive learning environments</li>
+          <li>✅ Mentorship from serving women MLAs and Panchayat Presidents</li>
+          <li>✅ Training on reserved constituency strategies and election law</li>
+          <li>✅ Self-confidence, public speaking, and media-handling modules</li>
+        </ul>
+        <div class="women-stats">
+          <div class="w-stat"><strong>50%</strong><span>Local body seats reserved for women in TN</span></div>
+          <div class="w-stat"><strong>1,000+</strong><span>Women leaders mentored so far</span></div>
+        </div>
+      </div>
+      <div class="women-quote-card">
+        <blockquote>
+          "True representation begins when women do not just hold office, but hold the power to shape legislative discourse for the people they serve."
+        </blockquote>
+        <cite>— Workshop Alumni, Batch 5, Madurai</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PATHWAY ═══════════════════════════════════════ -->
+<section id="pathway" class="section">
+  <div class="container">
+    <div class="section-label">THE ROADMAP</div>
+    <h2 class="section-title">Your Path to Political Leadership</h2>
+    <div class="pathway-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Register Online</h3>
+        <p>Fill the registration form. Seats are limited to 120 per batch and selection is based on your civic interest.</p>
+      </div>
+      <div class="step-arrow" aria-hidden="true">→</div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Attend Workshop</h3>
+        <p>6–8 months of intensive offline sessions covering governance, policy, campaigns, and civic law.</p>
+      </div>
+      <div class="step-arrow" aria-hidden="true">→</div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Civic Action Project</h3>
+        <p>Apply your learning to a real community challenge in your district. Work with local officials and administrators.</p>
+      </div>
+      <div class="step-arrow" aria-hidden="true">→</div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Enter Politics</h3>
+        <p>Graduate with a Government of Tamil Nadu certificate. Contest elections, join a party, or continue to our long-term school.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PROGRAMS ═══════════════════════════════════════ -->
+<section id="programs" class="section section-alt">
+  <div class="container">
+    <div class="section-label">CURRICULUM</div>
+    <h2 class="section-title">Workshop Programs</h2>
+    <div class="filter-bar" id="program-filters" role="group" aria-label="Filter programs">
+      <button class="filter-btn active" data-filter="all">All Programs</button>
+      <button class="filter-btn" data-filter="Beginner">Beginner</button>
+      <button class="filter-btn" data-filter="Women">Women Focus</button>
+      <button class="filter-btn" data-filter="Advanced">Advanced</button>
+      <button class="filter-btn" data-filter="Digital">Digital</button>
+    </div>
+    <div class="programs-grid" id="programs-grid">
+      <article class="program-card" data-tag="Beginner">
+        <div class="card-tag tag-beginner">Beginner</div>
+        <h3>Political Foundations</h3>
+        <div class="card-meta">📅 Month 1–2 &nbsp;|&nbsp; 👥 All Youth (18–35)</div>
+        <p>Understand the Indian Constitution, the structure of Tamil Nadu state governance, and the roles of MLA, MP, and district-level officials. Learn how laws are made and how citizens can engage.</p>
+        <a href="#registration" class="card-cta">Register Interest →</a>
+      </article>
+      <article class="program-card" data-tag="Women">
+        <div class="card-tag tag-women">Women Focus</div>
+        <h3>Women in Public Life</h3>
+        <div class="card-meta">📅 Month 2–3 &nbsp;|&nbsp; 👥 Women Participants</div>
+        <p>Explore the history of women in Indian politics, reserved seats under the 73rd and 74th Amendments, and practical strategies for contesting Panchayat elections and municipal seats.</p>
+        <a href="#registration" class="card-cta">Register Interest →</a>
+      </article>
+      <article class="program-card" data-tag="Advanced">
+        <div class="card-tag tag-advanced">Advanced</div>
+        <h3>Grassroots Campaign Skills</h3>
+        <div class="card-meta">📅 Month 3–5 &nbsp;|&nbsp; 👥 Aspiring Candidates</div>
+        <p>Master voter outreach, booth management, volunteer coordination, and Election Commission of India compliance. Learn how to run a clean, ethical, and effective campaign at any level.</p>
+        <a href="#registration" class="card-cta">Register Interest →</a>
+      </article>
+      <article class="program-card" data-tag="Digital">
+        <div class="card-tag tag-digital">Digital</div>
+        <h3>Digital Politics &amp; Media</h3>
+        <div class="card-meta">📅 Month 5–6 &nbsp;|&nbsp; 👥 All Participants</div>
+        <p>Learn how to use social media for political campaigns, identify and counter misinformation, engage with journalists, and build a credible digital presence as a public figure.</p>
+        <a href="#registration" class="card-cta">Register Interest →</a>
+      </article>
+      <article class="program-card" data-tag="Advanced">
+        <div class="card-tag tag-advanced">Advanced</div>
+        <h3>Policy Drafting &amp; Governance</h3>
+        <div class="card-meta">📅 Month 6–8 &nbsp;|&nbsp; 👥 Advanced Track</div>
+        <p>Draft real policy briefs, decode state budget documents, and practice engaging District Collectors and senior officials. Designed for participants who want careers in public administration.</p>
+        <a href="#registration" class="card-cta">Register Interest →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ TRAINERS ═══════════════════════════════════════ -->
+<section id="trainers" class="section">
+  <div class="container">
+    <div class="section-label">FACULTY</div>
+    <h2 class="section-title">Our Mentors &amp; Trainers</h2>
+    <div class="trainers-grid">
+      <div class="trainer-card">
+        <div class="trainer-avatar" data-gender="male"><span>AR</span></div>
+        <h3>Dr. Arulmozhi Rajendran</h3>
+        <p class="trainer-role">Former IAS Officer, Tamil Nadu Cadre</p>
+        <p class="trainer-bio">Specialist in decentralised planning and rural administrative reform with 22 years of state government experience.</p>
+        <div class="trainer-tags"><span>Governance</span><span>Policy</span><span>IAS</span></div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-avatar" data-gender="female"><span>KS</span></div>
+        <h3>Ms. Kavitha Subramanian</h3>
+        <p class="trainer-role">Former Panchayat President, Coimbatore District</p>
+        <p class="trainer-bio">Grassroots leader who served three terms as elected Panchayat President and mentored over 400 women candidates across Tamil Nadu.</p>
+        <div class="trainer-tags"><span>Women Leadership</span><span>Grassroots</span><span>Panchayati Raj</span></div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-avatar" data-gender="male"><span>VS</span></div>
+        <h3>Mr. Venkatesh Sundaram</h3>
+        <p class="trainer-role">Political Analyst &amp; Senior Journalist</p>
+        <p class="trainer-bio">15 years covering Tamil Nadu state politics. Expert in election strategy, media engagement, and political communication for young leaders.</p>
+        <div class="trainer-tags"><span>Media</span><span>Tamil Politics</span><span>Strategy</span></div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-avatar" data-gender="female"><span>PR</span></div>
+        <h3>Ms. Preethi Ramasamy</h3>
+        <p class="trainer-role">District Youth Leader &amp; Campaign Manager</p>
+        <p class="trainer-bio">Managed three successful Assembly constituency campaigns and leads the state's largest youth civic volunteer network with 12,000+ members.</p>
+        <div class="trainer-tags"><span>Youth Wing</span><span>Campaigns</span><span>Mobilisation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ TESTIMONIALS ═══════════════════════════════════════ -->
+<section id="testimonials" class="section section-alt">
+  <div class="container">
+    <div class="section-label">ALUMNI VOICES</div>
+    <h2 class="section-title">What Our Participants Say</h2>
+    <div class="testimonials-grid">
+      <blockquote class="testimonial-card">
+        <p>"The workshop completely changed how I understand democracy. I came in knowing nothing about local government — I left having written a draft resolution that was actually submitted to the Salem District Collector's office."</p>
+        <footer><strong>Murugesan K.</strong><cite>Workshop Graduate, Salem — Batch 4</cite></footer>
+      </blockquote>
+      <blockquote class="testimonial-card featured">
+        <p>"As a woman who always wanted to enter politics but didn't know where to start, this programme gave me the exact roadmap I needed. I'm now contesting the Panchayat ward election in Madurai next year."</p>
+        <footer><strong>Selvi Annamalai</strong><cite>Workshop Graduate, Madurai — Batch 5</cite></footer>
+      </blockquote>
+      <blockquote class="testimonial-card">
+        <p>"The digital politics module was eye-opening. I learned how to identify fake news, build a WhatsApp campaign network ethically, and how social media can amplify a genuine civic message."</p>
+        <footer><strong>Deepak R.</strong><cite>Workshop Graduate, Trichy — Batch 6</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ SCHEDULE ═══════════════════════════════════════ -->
+<section id="schedule" class="section">
+  <div class="container">
+    <div class="section-label">UPCOMING BATCHES</div>
+    <h2 class="section-title">Register for a Batch Near You</h2>
+    <div class="schedule-table-wrap">
+      <table class="schedule-table">
+        <thead>
+          <tr><th>Batch</th><th>Location</th><th>Start Date</th><th>Seats</th><th>Status</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Batch">Batch 7 — Chennai Centre</td>
+            <td data-label="Location">Chennai, Tamil Nadu</td>
+            <td data-label="Start Date">1 Aug 2025</td>
+            <td data-label="Seats">120</td>
+            <td data-label="Status"><span class="badge badge-open">Open</span></td>
+            <td data-label="Action"><a href="#registration" class="btn-table">Register</a></td>
+          </tr>
+          <tr>
+            <td data-label="Batch">Batch 10 — Women Only</td>
+            <td data-label="Location">Chennai, Tamil Nadu</td>
+            <td data-label="Start Date">1 Oct 2025</td>
+            <td data-label="Seats">60</td>
+            <td data-label="Status"><span class="badge badge-open">Open</span></td>
+            <td data-label="Action"><a href="#registration" class="btn-table">Register</a></td>
+          </tr>
+          <tr>
+            <td data-label="Batch">Batch 8 — Madurai Centre</td>
+            <td data-label="Location">Madurai, Tamil Nadu</td>
+            <td data-label="Start Date">15 Sep 2025</td>
+            <td data-label="Seats">80</td>
+            <td data-label="Status"><span class="badge badge-limited">Limited</span></td>
+            <td data-label="Action"><a href="#registration" class="btn-table">Register</a></td>
+          </tr>
+          <tr>
+            <td data-label="Batch">Batch 9 — Coimbatore Centre</td>
+            <td data-label="Location">Coimbatore, Tamil Nadu</td>
+            <td data-label="Start Date">1 Nov 2025</td>
+            <td data-label="Seats">100</td>
+            <td data-label="Status"><span class="badge badge-open">Open</span></td>
+            <td data-label="Action"><a href="#registration" class="btn-table">Register</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ DAILY UPDATES ═══════════════════════════════════════ -->
+<section id="updates" class="section section-alt">
+  <div class="container">
+    <div class="section-label">STAY INFORMED</div>
+    <h2 class="section-title">Daily Political Updates</h2>
+    <p class="section-intro">Every future leader must stay informed. Subscribe to receive daily political news, Tamil Nadu governance updates, and workshop announcements directly on WhatsApp or Email.</p>
+    <div class="updates-layout">
+      <div class="updates-feed">
+        <div class="update-item">
+          <span class="update-cat cat-tn">Tamil Nadu</span>
+          <p class="update-headline">Madurai Batch 6 students submit draft ward-level water policy to District Collector</p>
+          <span class="update-date">10 Jul 2025</span>
+        </div>
+        <div class="update-item">
+          <span class="update-cat cat-women">Women in Power</span>
+          <p class="update-headline">Tamil Nadu records highest women voter turnout in recent local body elections — 68%</p>
+          <span class="update-date">8 Jul 2025</span>
+        </div>
+        <div class="update-item">
+          <span class="update-cat cat-national">National</span>
+          <p class="update-headline">Parliament passes key municipal finance transparency amendment — here's what it means for TN Panchayats</p>
+          <span class="update-date">5 Jul 2025</span>
+        </div>
+      </div>
+      <div class="subscribe-card">
+        <h3>Subscribe for Daily Updates</h3>
+        <p>Get political news and workshop alerts on WhatsApp or Email</p>
+        <form id="subscribe-form" novalidate>
+          <input type="text" id="sub-contact" name="contact" placeholder="WhatsApp number or Email" aria-label="WhatsApp or Email">
+          <span class="field-error" id="err-sub-contact"></span>
+          <button type="submit" class="btn-primary" style="width:100%">Subscribe Now</button>
+        </form>
+        <div id="subscribe-success" class="success-msg hidden">✅ Subscribed! You'll receive updates shortly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ JOIN ═══════════════════════════════════════ -->
+<section id="join" class="section join-section">
+  <div class="container">
+    <h2>Ready to Join the Movement?</h2>
+    <p>Whether you want to volunteer, contest elections, join a party, or simply serve your community — your journey starts here.</p>
+    <div class="join-options">
+      <a href="#registration" class="join-btn join-saffron">Join as Youth Volunteer</a>
+      <a href="#registration" class="join-btn join-green">Join Women's Wing</a>
+      <a href="#registration" class="join-btn join-navy">Register as Booth Worker</a>
+      <a href="#registration" class="join-btn join-saffron">Apply for Party Membership</a>
+    </div>
+    <p class="join-disclaimer">This portal is non-partisan and facilitates political education. Party membership links are for informational purposes only.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ REGISTRATION ═══════════════════════════════════════ -->
+<section id="registration" class="section">
+  <div class="container">
+    <div class="section-label">APPLY NOW</div>
+    <h2 class="section-title">Register for the Workshop</h2>
+    <p class="section-intro">Seats are limited to 120 per batch. Fill the form below and our team will contact you within 3 working days.</p>
+    <form id="reg-form" class="reg-form" novalidate>
+      <div class="form-grid">
+        <div class="field-group">
+          <label for="reg-name">Full Name *</label>
+          <input type="text" id="reg-name" name="name" placeholder="Your full name">
+          <span class="field-error" id="err-name"></span>
+        </div>
+        <div class="field-group">
+          <label for="reg-email">Email Address *</label>
+          <input type="email" id="reg-email" name="email" placeholder="your@email.com">
+          <span class="field-error" id="err-email"></span>
+        </div>
+        <div class="field-group">
+          <label for="reg-phone">Mobile Number (WhatsApp) *</label>
+          <input type="tel" id="reg-phone" name="phone" placeholder="10-digit mobile number">
+          <span class="field-error" id="err-phone"></span>
+        </div>
+        <div class="field-group">
+          <label for="reg-dob">Date of Birth *</label>
+          <input type="date" id="reg-dob" name="dob">
+          <span class="field-error" id="err-dob"></span>
+        </div>
+        <div class="field-group">
+          <label for="reg-gender">Gender *</label>
+          <select id="reg-gender" name="gender">
+            <option value="">Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Transgender</option>
+            <option>Prefer not to say</option>
+          </select>
+          <span class="field-error" id="err-gender"></span>
+        </div>
+        <div class="field-group">
+          <label for="reg-district">District *</label>
+          <select id="reg-district" name="district">
+            <option value="">Select your district</option>
+            <option>Chennai</option><option>Coimbatore</option><option>Madurai</option>
+            <option>Salem</option><option>Trichy</option><option>Tirunelveli</option>
+            <option>Vellore</option><option>Erode</option><option>Thoothukudi</option>
+            <option>Thanjavur</option><option>Kancheepuram</option><option>Other</option>
+          </select>
+          <span class="field-error" id="err-district"></span>
+        </div>
+        <div class="field-group">
+          <label for="reg-batch">Preferred Batch *</label>
+          <select id="reg-batch" name="batch">
+            <option value="">Select a batch</option>
+            <option>Batch 7 — Chennai (Aug 2025)</option>
+            <option>Batch 8 — Madurai (Sep 2025)</option>
+            <option>Batch 9 — Coimbatore (Nov 2025)</option>
+            <option>Batch 10 — Women Only, Chennai (Oct 2025)</option>
+          </select>
+          <span class="field-error" id="err-batch"></span>
+        </div>
+        <div class="field-group">
+          <label for="reg-interest">Area of Interest *</label>
+          <select id="reg-interest" name="interest">
+            <option value="">Select your interest</option>
+            <option>Contest Elections</option>
+            <option>Party Work &amp; Volunteering</option>
+            <option>Policy Research</option>
+            <option>Media &amp; Communications</option>
+            <option>Civic Volunteering</option>
+          </select>
+          <span class="field-error" id="err-interest"></span>
+        </div>
+        <div class="field-group field-full">
+          <label for="reg-message">Why do you want to join? (optional)</label>
+          <textarea id="reg-message" name="message" rows="4" placeholder="Tell us about your civic interests and what you hope to achieve through this workshop..."></textarea>
+        </div>
+      </div>
+      <input type="hidden" name="action" value="yw_register">
+      <input type="hidden" name="nonce" id="reg-nonce" value="">
+      <button type="submit" class="btn-primary btn-submit">Submit Registration</button>
+      <p class="form-privacy">🔒 Your data is protected under Government of Tamil Nadu privacy guidelines and will only be used for workshop communication.</p>
+    </form>
+    <div id="reg-success" class="success-msg hidden">
+      ✅ <strong>Registration received!</strong> Our team will contact you within 3 working days on the mobile number you provided.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ DONATION ═══════════════════════════════════════ -->
+<section id="donate" class="section section-alt">
+  <div class="container">
+    <div class="section-label">SUPPORT US</div>
+    <h2 class="section-title">Donate to the Cause</h2>
+    <p class="section-intro">Your donation empowers Tamil Nadu's youth to become tomorrow's political leaders. All donations are voluntary and receipts will be issued via email.</p>
+    <div class="donate-layout">
+      <div class="donate-form-col">
+        <form id="donate-form" novalidate>
+          <div class="amount-selector">
+            <button type="button" class="amount-btn" data-amount="501">₹501</button>
+            <button type="button" class="amount-btn" data-amount="1001">₹1,001</button>
+            <button type="button" class="amount-btn active" data-amount="2501">₹2,501</button>
+            <button type="button" class="amount-btn" data-amount="5001">₹5,001</button>
+            <button type="button" class="amount-btn" data-amount="10001">₹10,001</button>
+          </div>
+          <div class="field-group">
+            <label for="custom-amount">Or enter custom amount (₹)</label>
+            <input type="number" id="custom-amount" name="custom_amount" placeholder="Minimum ₹101" min="101">
+            <input type="hidden" id="donation-amount" name="amount" value="2501">
+          </div>
+          <div class="field-group">
+            <label for="donor-name">Full Name *</label>
+            <input type="text" id="donor-name" name="donor_name" placeholder="Your name">
+            <span class="field-error" id="err-donor-name"></span>
+          </div>
+          <div class="field-group">
+            <label for="donor-email">Email Address *</label>
+            <input type="email" id="donor-email" name="donor_email" placeholder="your@email.com">
+            <span class="field-error" id="err-donor-email"></span>
+          </div>
+          <div class="field-group">
+            <label for="donor-phone">Mobile Number *</label>
+            <input type="tel" id="donor-phone" name="donor_phone" placeholder="10-digit mobile number">
+            <span class="field-error" id="err-donor-phone"></span>
+          </div>
+          <div class="field-group">
+            <label for="donor-pan">PAN Card Number (optional — for 80G receipt)</label>
+            <input type="text" id="donor-pan" name="donor_pan" placeholder="ABCDE1234F" maxlength="10">
+          </div>
+          <div class="payment-methods">
+            <p><strong>Payment Method:</strong></p>
+            <div class="pay-tabs" role="tablist">
+              <button type="button" class="pay-tab active" data-method="upi" role="tab" aria-selected="true">UPI / QR</button>
+              <button type="button" class="pay-tab" data-method="card" role="tab" aria-selected="false">Card</button>
+              <button type="button" class="pay-tab" data-method="netbanking" role="tab" aria-selected="false">Net Banking</button>
+              <button type="button" class="pay-tab" data-method="neft" role="tab" aria-selected="false">NEFT / RTGS</button>
+            </div>
+            <div class="pay-panel active" id="panel-upi">
+              <div class="upi-box">
+                <div class="qr-placeholder">
+                  <div class="qr-icon">📱</div>
+                  <p>Scan with any UPI app</p>
+                  <p class="qr-apps">Google Pay · PhonePe · Paytm · BHIM</p>
+                </div>
+                <div class="upi-id-box">
+                  <p>UPI ID:</p>
+                  <code id="upi-id-text">workshop@tngovt</code>
+                  <button type="button" id="copy-upi" class="btn-copy">Copy</button>
+                </div>
+              </div>
+            </div>
+            <div class="pay-panel" id="panel-card">
+              <p class="pay-note">🔒 Card payment gateway integration (Razorpay / PayU) to be configured by admin. Add your payment gateway SDK and redirect here.</p>
+            </div>
+            <div class="pay-panel" id="panel-netbanking">
+              <p class="pay-note">🔒 Net Banking integration (Razorpay / PayU) to be configured by admin.</p>
+            </div>
+            <div class="pay-panel" id="panel-neft">
+              <div class="bank-details">
+                <p><strong>Bank Transfer Details</strong></p>
+                <table class="bank-table">
+                  <tr><td>Account Name</td><td>TN Youth Political Workshop Fund</td></tr>
+                  <tr><td>Account Number</td><td>XXXX XXXX XXXX (fill by admin)</td></tr>
+                  <tr><td>IFSC Code</td><td>XXXX0000000 (fill by admin)</td></tr>
+                  <tr><td>Bank</td><td>State Bank of India</td></tr>
+                  <tr><td>Branch</td><td>Fort St. George, Chennai</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary btn-submit">Proceed to Donate</button>
+        </form>
+        <div id="donate-success" class="success-msg hidden">
+          ✅ <strong>Thank you for your donation!</strong> An official receipt will be emailed to you within 48 hours.
+        </div>
+      </div>
+      <div class="donate-info-col">
+        <div class="donate-info-card">
+          <h3>🏛️ PM CARES Fund</h3>
+          <p>For national-level contributions, you may also donate directly to the PM CARES Fund.</p>
+          <a href="https://pmcares.gov.in/en/web/contribution/donate_india" target="_blank" rel="noopener" class="btn-outline">Donate to PM CARES →</a>
+        </div>
+        <div class="donate-info-card">
+          <h3>📄 Tax Exemption</h3>
+          <p>Donations may be eligible for tax exemption under Section 80G of the Income Tax Act. Provide your PAN number to receive an 80G receipt. Consult your tax advisor for eligibility.</p>
+        </div>
+        <div class="donate-info-card">
+          <h3>✅ Official Receipt</h3>
+          <p>An official donation receipt will be emailed within 48 hours of successful payment confirmation. Contributions once processed cannot be cancelled or refunded.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ GALLERY ═══════════════════════════════════════ -->
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="section-label">GALLERY</div>
+    <h2 class="section-title">Workshop in Action</h2>
+    <div class="gallery-filter-bar" role="group" aria-label="Filter gallery">
+      <button class="gallery-filter active" data-gfilter="all">All</button>
+      <button class="gallery-filter" data-gfilter="Workshop Sessions">Sessions</button>
+      <button class="gallery-filter" data-gfilter="Women's Programs">Women</button>
+      <button class="gallery-filter" data-gfilter="Graduation">Graduation</button>
+      <button class="gallery-filter" data-gfilter="Field Visits">Field Visits</button>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <figure class="gallery-item" data-category="Workshop Sessions">
+        <div class="gallery-placeholder" style="background:linear-gradient(135deg,#1B3A6B,#2d5aa0)"><span>Opening Session — Batch 6</span></div>
+        <figcaption>Opening session — Batch 6, Chennai</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="Women's Programs">
+        <div class="gallery-placeholder" style="background:linear-gradient(135deg,#C8972B,#e6b347)"><span>Women's Leadership Training</span></div>
+        <figcaption>Women's leadership training — Madurai</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="Workshop Sessions">
+        <div class="gallery-placeholder" style="background:linear-gradient(135deg,#2A7A4B,#3da066)"><span>Constitution Study Group</span></div>
+        <figcaption>Constitution study group — Coimbatore</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="Graduation">
+        <div class="gallery-placeholder" style="background:linear-gradient(135deg,#8B4513,#b85a20)"><span>Certificate Distribution</span></div>
+        <figcaption>Certificate distribution — Batch 5</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="Field Visits">
+        <div class="gallery-placeholder" style="background:linear-gradient(135deg,#1B3A6B,#000080)"><span>Tamil Nadu Legislative Assembly</span></div>
+        <figcaption>Visit to Tamil Nadu Legislative Assembly</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="Women's Programs">
+        <div class="gallery-placeholder" style="background:linear-gradient(135deg,#C8972B,#FF9933)"><span>Mock Election Exercise</span></div>
+        <figcaption>Women candidates mock election exercise</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="Workshop Sessions">
+        <div class="gallery-placeholder" style="background:linear-gradient(135deg,#1B3A6B,#374785)"><span>Panel Discussion</span></div>
+        <figcaption>Panel discussion — District collectors &amp; youth</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="Graduation">
+        <div class="gallery-placeholder" style="background:linear-gradient(135deg,#8B4513,#6b3410)"><span>Chief Guest Address</span></div>
+        <figcaption>Chief Guest address — Batch 4 Graduation</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FAQ ═══════════════════════════════════════ -->
+<section id="faq" class="section section-alt">
+  <div class="container">
+    <div class="section-label">QUESTIONS</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Who can apply for the Tamil Nadu Youth Political Workshop?</summary>
+        <div class="faq-answer"><p>The workshop is open to Indian citizens between 18 and 35 years of age who are residents of Tamil Nadu. There are no educational restrictions — we welcome participants from all backgrounds. Special women-only batches are available for female applicants seeking a safer, focused learning environment. Candidates from Economically Weaker Sections (EWS) are encouraged to apply, as subsidised and free seats are available.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Is the workshop free or paid?</summary>
+        <div class="faq-answer"><p>The workshop is heavily subsidised by the Government of Tamil Nadu. For Economically Weaker Section (EWS) applicants, seats are available at no cost. A nominal fee may apply for other categories to cover training materials and certification. Complete fee details will be communicated after your application is reviewed and shortlisted. No applicant is turned away due to financial constraints.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How long is the programme?</summary>
+        <div class="faq-answer"><p>The core workshop runs for 6 to 8 months of intensive offline sessions. Sessions are typically held on weekends and selected weekdays to accommodate working youth. After completing the core workshop, participants may enrol in the long-term Political Leadership School, which offers continued mentorship, campaign internships, and advanced governance studies for an additional 6 months.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Will I receive a certificate at the end?</summary>
+        <div class="faq-answer"><p>Yes. All participants who successfully complete the programme receive a Certificate of Completion endorsed by the Government of Tamil Nadu. This certificate is recognised by Tamil Nadu district administration offices and can be cited in political party membership applications, election affidavits, and civic leadership roles. An additional Certificate of Excellence is awarded to the top 10% of each batch.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Is this workshop aligned with any political party?</summary>
+        <div class="faq-answer"><p>Absolutely not. The Tamil Nadu Youth Political Workshop is strictly non-partisan. The curriculum is rooted in constitutional values — democracy, justice, equality, secularism, and fraternity — not any party ideology. Participants from all political affiliations are welcome. The programme does not endorse or campaign for any party, and trainers are bound by a non-partisan code of conduct.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Will this programme help me contest elections?</summary>
+        <div class="faq-answer"><p>Yes, significantly. The Advanced track (Months 3–5) specifically covers grassroots campaign management, voter outreach, booth management, volunteer coordination, and Election Commission of India compliance. You will learn from experienced campaign managers and study real Tamil Nadu constituency case studies. Graduates who wish to contest local body elections receive dedicated support in identifying appropriate seats and drafting their electoral strategy.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Is the programme conducted in Tamil or English?</summary>
+        <div class="faq-answer"><p>The programme is fully bilingual — conducted in both Tamil and English. All training materials, handouts, policy documents, and digital resources are available in both languages. Tamil-medium participants are not disadvantaged in any module. Special Tamil-language groups are formed on request for participants who are not comfortable in English.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>What documents do I need to apply?</summary>
+        <div class="faq-answer"><p>The following documents will be required at the time of in-person verification after shortlisting: (1) Aadhaar Card — for age and identity verification; (2) Recent passport-size photograph; (3) Address proof — voter ID, ration card, or utility bill; (4) Educational qualification certificate — any level; (5) Caste certificate (optional, for EWS fee waiver); (6) For women-only batches — no additional documents required, gender declaration in the form is sufficient.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Are there special opportunities for women participants?</summary>
+        <div class="faq-answer"><p>Yes — we strongly encourage women to apply. There are dedicated women-only batches (such as Batch 10 in Chennai) with a safe, supportive learning environment. Women participants receive mentorship from serving women MLAs and Panchayat Presidents. Specific modules cover the 73rd and 74th Constitutional Amendments on reserved seats, election law for women candidates, self-confidence and public speaking, and strategies for winning in reserved constituencies. Over 1,000 women leaders have been mentored through this programme so far.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>How can I donate, and will I receive an 80G tax exemption receipt?</summary>
+        <div class="faq-answer"><p>You can donate through the Donation section of this page using UPI (scan the QR code or use the UPI ID workshop@tngovt), Debit/Credit Card, Net Banking, or NEFT/RTGS bank transfer. The minimum donation is ₹101. To receive a tax exemption receipt under Section 80G of the Income Tax Act, please provide your PAN card number at the time of donation. An official receipt will be emailed to you within 48 hours of successful payment. Please consult your tax advisor to confirm eligibility.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ SOCIAL ═══════════════════════════════════════ -->
+<section id="social" class="section">
+  <div class="container">
+    <h2 class="section-title">Follow Us &amp; Spread the Word</h2>
+    <div class="social-icons">
+      <a href="#" class="social-icon si-facebook" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+      <a href="#" class="social-icon si-twitter" aria-label="X / Twitter" target="_blank" rel="noopener">𝕏</a>
+      <a href="#" class="social-icon si-instagram" aria-label="Instagram" target="_blank" rel="noopener">📸</a>
+      <a href="#" class="social-icon si-youtube" aria-label="YouTube" target="_blank" rel="noopener">▶</a>
+      <a href="#" class="social-icon si-whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+      <a href="#" class="social-icon si-telegram" aria-label="Telegram" target="_blank" rel="noopener">✈</a>
+      <a href="#" class="social-icon si-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener">in</a>
+      <a href="#" class="social-icon si-koo" aria-label="Koo" target="_blank" rel="noopener">K</a>
+    </div>
+    <button id="share-btn" class="btn-primary">🔗 Share This Page</button>
+    <div id="share-toast" class="toast hidden">✅ Link copied to clipboard!</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══════════════════════════════════════ -->
+<footer id="site-footer">
+  <div class="footer-tricolour" aria-hidden="true">
+    <div class="tc-saffron"></div><div class="tc-white"></div><div class="tc-green"></div>
+  </div>
+  <div class="footer-inner container">
+    <div class="footer-col footer-brand">
+      <p class="footer-logo">🇮🇳 TN Youth Workshop</p>
+      <p class="footer-tagline">Building Tomorrow's India, Today.</p>
+      <p class="footer-disclaimer">A non-partisan civic education initiative of the Government of Tamil Nadu. Not affiliated with any political party.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#registration">Register</a></li>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#" id="terms-link">Terms of Use</a></li>
+        <li><a href="#" id="contact-link">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>📍 Tamil Nadu Youth Political Workshop<br>Secretariat, Fort St. George<br>Chennai — 600 009</p>
+      <p>📧 youthworkshop@tn.gov.in</p>
+      <p>📞 +91-44-2567-XXXX</p>
+      <p>💬 WhatsApp: +91-9XXXXXXXXX</p>
+      <p>🕐 Mon–Fri, 10:00 AM–5:00 PM IST</p>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="X/Twitter">𝕏</a>
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="YouTube">▶</a>
+        <a href="#" aria-label="WhatsApp">💬</a>
+        <a href="#" aria-label="Telegram">✈</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Tamil Nadu Youth Political Workshop. All rights reserved. | Non-partisan civic training platform.</p>
+  </div>
+</footer>
+
+<a href="#hero" id="back-to-top" aria-label="Back to top" class="back-to-top">↑</a>
+
+<!-- AGENT3: Full JS injected -->
+<script>
+(function() {
+  'use strict';
+
+  /* ─── HELPERS ──────────────────────────────────────── */
+  var $ = function(sel, ctx) { return (ctx || document).querySelector(sel); };
+  var $$ = function(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); };
+  var LS = { get: function(k) { try { return localStorage.getItem(k); } catch(e) { return null; } }, set: function(k,v) { try { localStorage.setItem(k,v); } catch(e) {} } };
+
+  /* ─── STICKY HEADER SCROLL SHADOW ──────────────────── */
+  var header = $('#site-header');
+  if (header) {
+    window.addEventListener('scroll', function() {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
+
+  /* ─── MOBILE NAV TOGGLE ─────────────────────────────── */
+  var navToggle = $('#nav-toggle');
+  var mainNav = $('#main-nav');
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', function() {
+      var isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+    // Close on nav link click
+    $$('a', mainNav).forEach(function(link) {
+      link.addEventListener('click', function() {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!header.contains(e.target)) {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* ─── FONT SIZE TOGGLE ──────────────────────────────── */
+  var htmlEl = document.documentElement;
+  var savedFs = LS.get('yw-fs') || 'md';
+  htmlEl.className = htmlEl.className.replace(/\bfs-\w+\b/g, '').trim() + ' fs-' + savedFs;
+  $$('.font-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.size === savedFs);
+    btn.addEventListener('click', function() {
+      var size = this.dataset.size;
+      htmlEl.className = htmlEl.className.replace(/\bfs-\w+\b/g, '').trim() + ' fs-' + size;
+      LS.set('yw-fs', size);
+      $$('.font-btn').forEach(function(b) { b.classList.toggle('active', b.dataset.size === size); });
+    });
+  });
+
+  /* ─── DARK MODE TOGGLE ──────────────────────────────── */
+  var themeBtn = $('#theme-toggle');
+  var savedTheme = LS.get('yw-theme') || 'light';
+  if (savedTheme === 'dark') {
+    htmlEl.classList.add('dark');
+    if (themeBtn) themeBtn.textContent = '☀️';
+  }
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function() {
+      var isDark = htmlEl.classList.toggle('dark');
+      themeBtn.textContent = isDark ? '☀️' : '🌙';
+      LS.set('yw-theme', isDark ? 'dark' : 'light');
+    });
+  }
+
+  /* ─── SMOOTH SCROLL WITH HEADER OFFSET ─────────────── */
+  document.addEventListener('click', function(e) {
+    var anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    var targetId = anchor.getAttribute('href').slice(1);
+    if (!targetId) return;
+    var target = document.getElementById(targetId);
+    if (!target) return;
+    e.preventDefault();
+    var headerH = header ? header.offsetHeight : 0;
+    var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  });
+
+  /* ─── ACTIVE NAV ON SCROLL (IntersectionObserver) ──── */
+  var sections = $$('section[id], header[id]');
+  var navLinks = $$('#main-nav a[href^="#"]');
+  if ('IntersectionObserver' in window && navLinks.length) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function(link) {
+            var href = link.getAttribute('href').slice(1);
+            link.classList.toggle('active', href === entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-' + (header ? header.offsetHeight : 72) + 'px 0px -60% 0px' });
+    sections.forEach(function(s) { io.observe(s); });
+  }
+
+  /* ─── BACK TO TOP ───────────────────────────────────── */
+  var btt = $('#back-to-top');
+  if (btt) {
+    window.addEventListener('scroll', function() {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+  }
+
+  /* ─── PROGRAM FILTER ────────────────────────────────── */
+  var programFilters = $$('#program-filters .filter-btn');
+  var programCards = $$('#programs-grid .program-card');
+  programFilters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      programFilters.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.dataset.filter;
+      programCards.forEach(function(card) {
+        if (filter === 'all' || card.dataset.tag === filter) {
+          card.classList.remove('hidden-card');
+        } else {
+          card.classList.add('hidden-card');
+        }
+      });
+    });
+  });
+
+  /* ─── GALLERY FILTER ────────────────────────────────── */
+  var galleryFilters = $$('.gallery-filter');
+  var galleryItems = $$('#gallery-grid .gallery-item');
+  galleryFilters.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      galleryFilters.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var filter = btn.dataset.gfilter;
+      galleryItems.forEach(function(item) {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.classList.remove('hidden-item');
+        } else {
+          item.classList.add('hidden-item');
+        }
+      });
+    });
+  });
+
+  /* ─── FORM VALIDATION HELPERS ───────────────────────── */
+  function showErr(fieldId, errId, msg) {
+    var f = $('#' + fieldId);
+    var e = $('#' + errId);
+    if (f) f.classList.add('invalid');
+    if (e) e.textContent = msg;
+    return false;
+  }
+  function clearErr(fieldId, errId) {
+    var f = $('#' + fieldId);
+    var e = $('#' + errId);
+    if (f) f.classList.remove('invalid');
+    if (e) e.textContent = '';
+  }
+  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+  function isPhone(v) { return /^[6-9]\d{9}$/.test(v.replace(/\s/g, '')); }
+
+  /* ─── REGISTRATION FORM ─────────────────────────────── */
+  var regForm = $('#reg-form');
+  var regSuccess = $('#reg-success');
+  if (regForm) {
+    regForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var valid = true;
+      var fields = ['name','email','phone','dob','gender','district','batch','interest'];
+      fields.forEach(function(f) { clearErr('reg-'+f, 'err-'+f); });
+
+      var name = $('#reg-name').value.trim();
+      if (name.length < 2) valid = showErr('reg-name','err-name','Please enter your full name (min 2 characters).');
+
+      var email = $('#reg-email').value.trim();
+      if (!isEmail(email)) valid = showErr('reg-email','err-email','Please enter a valid email address.');
+
+      var phone = $('#reg-phone').value.trim();
+      if (!isPhone(phone)) valid = showErr('reg-phone','err-phone','Please enter a valid 10-digit Indian mobile number.');
+
+      var dob = $('#reg-dob').value;
+      if (!dob) {
+        valid = showErr('reg-dob','err-dob','Please enter your date of birth.');
+      } else {
+        var dobDate = new Date(dob);
+        var today = new Date();
+        var age = today.getFullYear() - dobDate.getFullYear();
+        var m = today.getMonth() - dobDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dobDate.getDate())) age--;
+        if (age < 18) valid = showErr('reg-dob','err-dob','You must be at least 18 years old to apply.');
+        else if (age > 35) valid = showErr('reg-dob','err-dob','This programme is for youth aged 18–35 only.');
+      }
+
+      if (!$('#reg-gender').value) valid = showErr('reg-gender','err-gender','Please select your gender.');
+      if (!$('#reg-district').value) valid = showErr('reg-district','err-district','Please select your district.');
+      if (!$('#reg-batch').value) valid = showErr('reg-batch','err-batch','Please select a preferred batch.');
+      if (!$('#reg-interest').value) valid = showErr('reg-interest','err-interest','Please select an area of interest.');
+
+      if (valid) {
+        regForm.style.display = 'none';
+        if (regSuccess) regSuccess.classList.remove('hidden');
+      }
+    });
+
+    // Live clear errors on input
+    $$('input,select,textarea', regForm).forEach(function(el) {
+      el.addEventListener('input', function() {
+        this.classList.remove('invalid');
+        var errId = 'err-' + this.name;
+        var err = $('#' + errId);
+        if (err) err.textContent = '';
+      });
+    });
+  }
+
+  /* ─── SUBSCRIBE FORM ────────────────────────────────── */
+  var subForm = $('#subscribe-form');
+  var subSuccess = $('#subscribe-success');
+  if (subForm) {
+    subForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var val = $('#sub-contact').value.trim();
+      var errEl = $('#err-sub-contact');
+      $('#sub-contact').classList.remove('invalid');
+      if (errEl) errEl.textContent = '';
+      if (!val) {
+        $('#sub-contact').classList.add('invalid');
+        if (errEl) errEl.textContent = 'Please enter a WhatsApp number or email address.';
+        return;
+      }
+      if (!isPhone(val) && !isEmail(val)) {
+        $('#sub-contact').classList.add('invalid');
+        if (errEl) errEl.textContent = 'Please enter a valid 10-digit mobile number or email.';
+        return;
+      }
+      subForm.style.display = 'none';
+      if (subSuccess) subSuccess.classList.remove('hidden');
+    });
+  }
+
+  /* ─── DONATION AMOUNT SELECTOR ──────────────────────── */
+  var amountBtns = $$('.amount-btn');
+  var donationHidden = $('#donation-amount');
+  var customAmountInput = $('#custom-amount');
+
+  amountBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      amountBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      if (donationHidden) donationHidden.value = btn.dataset.amount;
+      if (customAmountInput) customAmountInput.value = '';
+    });
+  });
+
+  if (customAmountInput) {
+    customAmountInput.addEventListener('input', function() {
+      var val = parseInt(this.value);
+      amountBtns.forEach(function(b) { b.classList.remove('active'); });
+      if (donationHidden) donationHidden.value = isNaN(val) ? '' : val;
+    });
+  }
+
+  /* ─── PAYMENT TAB SWITCHING ─────────────────────────── */
+  var payTabs = $$('.pay-tab');
+  var payPanels = $$('.pay-panel');
+  payTabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      payTabs.forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      payPanels.forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      var panel = $('#panel-' + tab.dataset.method);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  /* ─── UPI COPY BUTTON ───────────────────────────────── */
+  var copyUPI = $('#copy-upi');
+  var upiText = $('#upi-id-text');
+  if (copyUPI && upiText) {
+    copyUPI.addEventListener('click', function() {
+      var text = upiText.textContent;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function() {
+          copyUPI.textContent = '✓ Copied!';
+          setTimeout(function() { copyUPI.textContent = 'Copy'; }, 2000);
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        copyUPI.textContent = '✓ Copied!';
+        setTimeout(function() { copyUPI.textContent = 'Copy'; }, 2000);
+      }
+    });
+  }
+
+  /* ─── DONATION FORM SUBMIT ──────────────────────────── */
+  var donateForm = $('#donate-form');
+  var donateSuccess = $('#donate-success');
+  if (donateForm) {
+    donateForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var valid = true;
+      ['donor-name','donor-email','donor-phone'].forEach(function(id) {
+        var errId = 'err-' + id;
+        clearErr(id, errId);
+      });
+
+      var dname = $('#donor-name').value.trim();
+      if (dname.length < 2) valid = showErr('donor-name','err-donor-name','Please enter your full name.');
+
+      var demail = $('#donor-email').value.trim();
+      if (!isEmail(demail)) valid = showErr('donor-email','err-donor-email','Please enter a valid email address.');
+
+      var dphone = $('#donor-phone').value.trim();
+      if (!isPhone(dphone)) valid = showErr('donor-phone','err-donor-phone','Please enter a valid 10-digit mobile number.');
+
+      var amt = parseInt(donationHidden ? donationHidden.value : 0);
+      if (!amt || amt < 101) {
+        alert('Please select or enter a donation amount of at least ₹101.');
+        return;
+      }
+
+      if (valid) {
+        donateForm.style.display = 'none';
+        if (donateSuccess) donateSuccess.classList.remove('hidden');
+      }
+    });
+  }
+
+  /* ─── SOCIAL SHARE BUTTON ───────────────────────────── */
+  var shareBtn = $('#share-btn');
+  var shareToast = $('#share-toast');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function() {
+      var url = window.location.href;
+      if (navigator.share) {
+        navigator.share({ title: 'TN Youth Political Workshop', url: url }).catch(function() {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function() { showToast(); });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast();
+      }
+    });
+  }
+
+  function showToast() {
+    if (!shareToast) return;
+    shareToast.classList.remove('hidden');
+    shareToast.classList.add('visible');
+    setTimeout(function() {
+      shareToast.classList.remove('visible');
+      setTimeout(function() { shareToast.classList.add('hidden'); }, 350);
+    }, 2500);
+  }
+
+  /* ─── HERO STATS COUNTER ANIMATION ─────────────────── */
+  var counterDone = false;
+  var counterEl = $('[data-target]');
+  if (counterEl && 'IntersectionObserver' in window) {
+    var counterIO = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting && !counterDone) {
+        counterDone = true;
+        var target = parseInt(counterEl.dataset.target);
+        var start = 0;
+        var duration = 1800;
+        var startTime = null;
+        function step(ts) {
+          if (!startTime) startTime = ts;
+          var progress = Math.min((ts - startTime) / duration, 1);
+          var ease = 1 - Math.pow(1 - progress, 3);
+          counterEl.textContent = Math.floor(ease * target) + 'M+';
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        counterIO.disconnect();
+      }
+    }, { threshold: 0.5 });
+    counterIO.observe(counterEl);
+  }
+
+  /* ─── FAQ — close others on open (optional UX) ──────── */
+  var faqItems = $$('.faq-item');
+  faqItems.forEach(function(item) {
+    item.addEventListener('toggle', function() {
+      if (item.open) {
+        faqItems.forEach(function(other) {
+          if (other !== item && other.open) other.open = false;
+        });
+      }
+    });
+  });
+
+  /* ─── WORDPRESS COMPATIBILITY: Set nonce if available ── */
+  var nonceField = $('#reg-nonce');
+  if (nonceField && typeof ywData !== 'undefined' && ywData.nonce) {
+    nonceField.value = ywData.nonce;
+  }
+
+  /* ─── SCROLL ANIMATIONS (sections fade-up on entry) ─── */
+  if ('IntersectionObserver' in window) {
+    var animEls = $$('.pillar-card, .trainer-card, .program-card, .testimonial-card, .step, .gallery-item, .faq-item');
+    var animIO = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-up');
+          animIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    animEls.forEach(function(el) { animIO.observe(el); });
+  }
+
+})();
+</script>
 </body>
 </html>
